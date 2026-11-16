@@ -11,7 +11,7 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#071a42;--card:#0e2a63;--text:#eaf2ff;--muted:#a9bddf;--line:#1d3f86;--sec:#0a2253;--h1:#0a2253;--h2:#0e3a8a}}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
-body{font-family:var(--bf);background:var(--bg);color:var(--text);line-height:1.5;overflow-x:hidden}
+body{font-family:var(--bf);background:var(--bg);color:var(--text);line-height:1.5;overflow-x:hidden;background:linear-gradient(160deg,var(--h1),var(--bg) 70%) fixed}
 h1,h2,h3{font-family:var(--hf);line-height:1.1}
 h2{font-size:clamp(1.8rem,4vw,2.6rem);font-style:italic;font-weight:800;color:var(--blue);margin-bottom:.4rem}
 .sub{color:var(--muted);margin-bottom:1.6rem;max-width:40rem}
@@ -25,7 +25,7 @@ header{position:sticky;top:0;z-index:40;background:var(--navy);color:#fff;height
 header b{font:italic 800 1.1rem var(--hf);white-space:nowrap}header b span{color:var(--sky)}
 header .btn{padding:.55rem 1.1rem;font-size:.9rem}
 .menu{display:none}
-.slide{padding:3.5rem 0}.slide:nth-child(even){background:var(--sec)}
+.slide{padding:3.5rem 0}
 .in{width:min(76rem,100% - 2.5rem);margin:0 auto}
 .g{display:grid;gap:1.1rem;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr))}
 .card{background:var(--card);border:1px solid var(--line);border-radius:1.2rem;padding:1.4rem;box-shadow:0 .4rem 1.1rem rgba(21,101,216,.08)}
@@ -83,6 +83,7 @@ header{position:relative;flex:none}
 .dots button{width:.6rem;height:.6rem;border-radius:99px;border:0;background:#6d8fd0;padding:0;transition:.3s}.dots button.on{width:1.8rem;background:var(--sky)}
 .fab{bottom:1rem;right:1.2rem;width:3.2rem;height:3.2rem;font-size:1.6rem}
 }
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}.view{position:relative;z-index:1}
 </style>
 </head>
 <body>
@@ -90,6 +91,7 @@ header{position:relative;flex:none}
 <nav class="menu" id="menu" aria-label="Seções"></nav>
 <span style="display:flex;gap:.6rem"><a class="btn ig hi" href="https://www.instagram.com/super_heroclean" target="_blank" rel="noopener">Instagram</a><a class="btn wa" href="#" data-wa="Olá! Vim pelo site e quero um orçamento.">WhatsApp</a></span></header>
 
+<canvas id="fx" aria-hidden="true"></canvas>
 <div class="view"><main class="stage" id="stage">
 
 <section class="slide" id="inicio" data-t="Início"><div class="in hero">
@@ -217,6 +219,36 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
 var k=S.findIndex(function(x){return"#"+x.id===a.getAttribute("href")});if(k>-1&&mq.matches){e.preventDefault();go(k)}});
 mq.onchange=function(){st.style.setProperty("--i",i);ui()};
 var h=location.hash.slice(1),k0=S.findIndex(function(x){return x.id===h});if(k0>0){i=k0;st.style.setProperty("--i",k0)}ui();
+})();
+
+/* fundo: espuma, bolhas e brilhos de limpeza */
+(function(){var c=document.getElementById("fx"),x=c.getContext("2d"),W,H,B=[],S=[],F=[],rm=matchMedia("(prefers-reduced-motion:reduce)").matches,run=0;
+function R(a,b){return a+Math.random()*(b-a)}
+function nb(fb){var r=R(5,12)+Math.random()*Math.random()*34;return{x:R(0,W),y:fb?H+r+R(0,80):R(0,H),r:r,v:R(.25,.8)+18/r*.05,ph:R(0,6.28),sw:R(6,20),pop:Math.random()<.4?R(.1,.8)*H:-1,pp:0}}
+function init(){var d=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;c.width=W*d;c.height=H*d;x.setTransform(d,0,0,d,0,0);
+B=[];for(var i=0;i<Math.min(36,W/38);i++)B.push(nb(0));
+S=[];for(i=0;i<(W<700?9:16);i++)S.push({x:R(0,W),y:R(0,H*.9),s:R(7,16),ph:R(0,6.28),sp:R(.0007,.0018)});
+F=[];for(i=0;i<W/7;i++)F.push({x:R(0,W),y:H-Math.pow(Math.random(),2)*H*.075+R(0,10),r:R(8,24),ph:R(0,6.28)})}
+function bub(bx,by,r,a,foam){var g=x.createRadialGradient(bx-r*.35,by-r*.35,r*.05,bx,by,r);
+g.addColorStop(0,"rgba(255,255,255,"+(.95*a)+")");g.addColorStop(.4,foam?"rgba(240,248,255,"+(.7*a)+")":"rgba(190,225,255,"+(.3*a)+")");g.addColorStop(1,"rgba(70,150,255,"+(.2*a)+")");
+x.beginPath();x.arc(bx,by,r,0,6.283);x.fillStyle=g;x.fill();x.lineWidth=1;x.strokeStyle="rgba(21,101,216,"+(.28*a)+")";x.stroke();
+x.beginPath();x.arc(bx,by,r*.7,3.6,4.5);x.lineWidth=Math.max(1,r*.09);x.strokeStyle="rgba(255,255,255,"+(.9*a)+")";x.stroke()}
+function star(sx,sy,s,a){x.save();x.translate(sx,sy);x.beginPath();for(var i=0;i<8;i++){var q=i%2?s*.16:s,t=i*Math.PI/4;x.lineTo(Math.sin(t)*q,-Math.cos(t)*q)}x.closePath();
+x.shadowColor="rgba(56,182,255,"+a+")";x.shadowBlur=14;x.fillStyle="rgba(255,255,255,"+a+")";x.fill();x.lineWidth=1;x.strokeStyle="rgba(56,182,255,"+a*.8+")";x.stroke();x.restore()}
+function frame(t){x.clearRect(0,0,W,H);
+var sw=((t*.00011)%1.6-.3)*(W+H);x.save();x.translate(sw-H*.3,0);x.rotate(.35);var g=x.createLinearGradient(-90,0,90,0);g.addColorStop(0,"rgba(255,255,255,0)");g.addColorStop(.5,"rgba(255,255,255,.22)");g.addColorStop(1,"rgba(255,255,255,0)");x.fillStyle=g;x.fillRect(-90,-H,180,H*3);x.restore();
+B.forEach(function(b,i){if(b.pp>0){b.pp+=.045;var p=b.pp,a=1-p;x.lineWidth=2;x.strokeStyle="rgba(56,182,255,"+a*.8+")";x.beginPath();x.arc(b.x,b.y,b.r*(1+p*.9),0,6.283);x.stroke();
+for(var k=0;k<7;k++){var an=k*.9,d=b.r*(1+p*1.6);x.fillStyle="rgba(255,255,255,"+a+")";x.beginPath();x.arc(b.x+Math.cos(an)*d,b.y+Math.sin(an)*d,2,0,6.283);x.fill()}
+if(p>=1)B[i]=nb(1);return}
+b.y-=b.v;b.x+=Math.sin(t*.0009+b.ph)*.35;if(b.pop>0&&b.y<b.pop)b.pp=.01;else if(b.y<-b.r*2)B[i]=nb(1);bub(b.x,b.y,b.r,1,0)});
+var fg=x.createLinearGradient(0,H-H*.07,0,H);fg.addColorStop(0,"rgba(255,255,255,0)");fg.addColorStop(1,"rgba(255,255,255,.55)");x.fillStyle=fg;x.fillRect(0,H-H*.07,W,H*.07);
+F.forEach(function(f){bub(f.x+Math.sin(t*.0004+f.ph)*3,f.y+Math.sin(t*.0007+f.ph)*3,f.r*(1+Math.sin(t*.0005+f.ph)*.05),.85,1)});
+S.forEach(function(s){var a=Math.pow(Math.max(0,Math.sin(t*s.sp+s.ph)),3);if(a>.02)star(s.x,s.y,s.s*(.6+a*.6),a)});
+if(run&&!rm)requestAnimationFrame(frame)}
+function go(){if(!run){run=1;requestAnimationFrame(frame)}}
+init();addEventListener("resize",function(){init();if(rm||!run)frame(0)});
+if(rm){frame(1500)}else go();
+document.addEventListener("visibilitychange",function(){if(document.hidden)run=0;else if(!rm)go()});
 })();
 </script>
 </body>
