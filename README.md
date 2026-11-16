@@ -1,1 +1,169 @@
-# superheroclean
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Super Hero Clean | Higienização de estofados, carpetes e carros em Porto Alegre</title>
+<meta name="description" content="Higienização profissional de sofás, colchões, carpetes e interior de veículos em Porto Alegre e região metropolitana. Peça seu orçamento pelo WhatsApp.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,800&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{--navy:#0b2a6b;--blue:#1565d8;--sky:#38b6ff;--ice:#eaf4ff;--bg:#fff;--card:#fff;--text:#14213d;--muted:#52607a;--line:#d6e4f7;--sec:#f3f8ff;--hero1:#eaf4ff;--hero2:#cfe6ff;--wa:#25d366;--gold:#ffc83d;--red:#e5262b;--hf:"Montserrat","Arial Black",Arial,sans-serif;--bf:"Inter",system-ui,Arial,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#071a42;--card:#0e2a63;--text:#eaf2ff;--muted:#a9bddf;--line:#1d3f86;--sec:#0a2253;--hero1:#0a2253;--hero2:#0e3a8a}}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth;scroll-padding-top:70px;height:100%}
+body{font-family:var(--bf);background:var(--bg);color:var(--text);line-height:1.55;overflow-x:hidden}
+h1,h2,h3{font-family:var(--hf);line-height:1.1}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:64px 0}.alt{background:var(--sec)}
+h2{font-size:clamp(1.6rem,4vw,2.3rem);font-style:italic;font-weight:800;color:var(--blue);margin-bottom:8px}
+.sub{color:var(--muted);margin-bottom:32px;max-width:620px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:999px;font-weight:700;text-decoration:none;font-family:var(--hf);border:0;cursor:pointer;font-size:1rem;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}.btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.wa{background:var(--wa);color:#04361a;box-shadow:0 8px 20px rgba(37,211,102,.35)}
+.ghost{background:transparent;color:var(--blue);border:2px solid var(--blue)}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy);color:#fff}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+header b{font-family:var(--hf);font-style:italic;font-weight:800;letter-spacing:.5px}header b span{color:var(--sky)}
+header .btn{padding:8px 16px;font-size:.9rem}
+.hero{background:linear-gradient(135deg,var(--hero1),var(--hero2));padding:48px 0 56px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+.tag{display:inline-block;background:var(--navy);color:#fff;border-radius:999px;padding:6px 14px;font-size:.8rem;font-weight:600;margin-bottom:16px}
+.hero h1{font-size:clamp(2rem,5.5vw,3.4rem);font-style:italic;font-weight:800;color:var(--navy);margin-bottom:16px}
+.hero h1 em{color:var(--blue)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero h1{color:#fff}:root:not([data-theme="light"]) .hero h1 em{color:var(--sky)}}
+.hero p{color:var(--muted);margin-bottom:24px;font-size:1.05rem}.cta{display:flex;gap:12px;flex-wrap:wrap}
+.logo{background:#fff;border-radius:28px;padding:12px;box-shadow:0 20px 50px rgba(11,42,107,.25);max-width:380px;margin:0 auto}.logo img{width:100%;display:block;border-radius:18px}
+.trust{background:var(--navy);color:#fff;padding:18px 0}.trust .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;text-align:center;font-size:.9rem;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 6px 18px rgba(21,101,216,.08)}
+.card .ic{font-size:2rem;margin-bottom:10px}.card h3{font-size:1.1rem;color:var(--blue);margin-bottom:6px}.card p{color:var(--muted);font-size:.95rem}
+.promo{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center;background:var(--navy);border-radius:28px;overflow:hidden;color:#fff}
+.promo img{width:100%;display:block;height:100%;object-fit:cover;max-height:460px}.promo div{padding:32px}
+.promo h2{color:#fff}.badge{display:inline-block;background:var(--red);color:#fff;font-family:var(--hf);font-weight:800;font-size:1.6rem;padding:8px 18px;border-radius:10px;margin:8px 0 16px;transform:rotate(-2deg)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tab{padding:10px 18px;border-radius:999px;border:2px solid var(--blue);background:transparent;color:var(--blue);font-weight:700;cursor:pointer;font-family:var(--hf)}
+.tab[aria-selected="true"]{background:var(--blue);color:#fff}
+.price{display:flex;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line)}.price b{color:var(--blue);white-space:nowrap}
+.plist{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden}.note{font-size:.85rem;color:var(--muted);margin-top:12px}
+.calc{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+label{font-weight:600;font-size:.9rem;display:block;margin:12px 0 4px}
+select,input{width:100%;padding:12px;border-radius:12px;border:2px solid var(--line);background:var(--card);color:var(--text);font:inherit}
+.res{background:var(--navy);color:#fff;border-radius:20px;padding:28px;text-align:center}.res strong{display:block;font-family:var(--hf);font-size:1.9rem;color:var(--sky);margin:8px 0 16px}
+.steps{counter-reset:s}.steps .card{position:relative;padding-top:44px}.steps .card:before{counter-increment:s;content:counter(s);position:absolute;top:-16px;left:20px;width:44px;height:44px;border-radius:50%;background:var(--blue);color:#fff;font:800 1.3rem var(--hf);display:grid;place-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:10px}.chips span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-weight:600;color:var(--blue)}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:10px}summary{font-weight:700;cursor:pointer}details p{color:var(--muted);margin-top:8px}
+.final{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;text-align:center}.final h2{color:#fff}.final .sub{margin:0 auto 24px;color:#d6e7ff}
+footer{background:#061a47;color:#a9bddf;text-align:center;padding:28px 20px;font-size:.9rem}footer a{color:var(--sky)}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;font-size:1.9rem;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+@media(max-width:760px){.hero .wrap,.promo,.calc{grid-template-columns:1fr}.trust .wrap{grid-template-columns:1fr 1fr}section{padding:48px 0}.logo{max-width:280px}header .hide{display:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><b>SUPER <span>HERO</span> CLEAN</b><a class="btn wa" href="#" data-wa="Olá! Vim pelo site e quero um orçamento.">WhatsApp</a></div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+<div>
+<span class="tag">📍 Porto Alegre e região metropolitana</span>
+<h1>Seu estofado, carpete e carro <em>limpos como novos.</em></h1>
+<p>Higienização profissional que elimina ácaros, manchas e odores. Mais saúde e conforto para a sua família, sem sair de casa.</p>
+<div class="cta"><a class="btn wa" href="#" data-wa="Olá! Quero um orçamento de higienização.">💬 Pedir orçamento grátis</a><a class="btn ghost" href="#precos">Ver preços</a></div>
+</div>
+<div class="logo"><img src="assets/logo.jpg" alt="Mascote e logo Super Hero Clean: higienização de estofados, tapetes, automotivos e pisos"></div>
+</div></section>
+
+<div class="trust"><div class="wrap"><div>✅ Equipe treinada</div><div>🌿 Produtos seguros</div><div>⚡ Orçamento rápido</div><div>🏠 Atendimento a domicílio</div></div></div>
+
+<section id="servicos"><div class="wrap">
+<h2>Nossos serviços</h2><p class="sub">Escolha o que precisa de uma limpeza de verdade e chame no WhatsApp.</p>
+<div class="grid">
+<div class="card"><div class="ic">🛋️</div><h3>Estofados</h3><p>Sofás, poltronas e cadeiras com remoção profunda de sujeira, manchas e odores.</p></div>
+<div class="card"><div class="ic">🛏️</div><h3>Colchões</h3><p>Elimina ácaros e resíduos para uma noite de sono mais saudável.</p></div>
+<div class="card"><div class="ic">🚗</div><h3>Veículos</h3><p>Bancos, teto e interior completo. Seu carro limpo, cheiroso e valorizado.</p></div>
+<div class="card"><div class="ic">🧼</div><h3>Carpetes e pisos</h3><p>Limpeza por m² que renova cores e protege as fibras.</p></div>
+</div></div></section>
+
+<section class="alt"><div class="wrap">
+<h2>Por que higienizar?</h2><p class="sub">Sujeira que você não vê também afeta a sua saúde e o seu bolso.</p>
+<div class="grid">
+<div class="card"><div class="ic">🫁</div><h3>Saúde e bem-estar</h3><p>Reduz ácaros, fungos, bactérias e alérgenos que causam crises respiratórias.</p></div>
+<div class="card"><div class="ic">✨</div><h3>Aspecto de novo</h3><p>Remove manchas difíceis e devolve maciez ao tecido.</p></div>
+<div class="card"><div class="ic">🌬️</div><h3>Fim dos odores</h3><p>Cigarro, animais, mofo e alimentos: sai o cheiro ruim, entra o frescor.</p></div>
+<div class="card"><div class="ic">🛡️</div><h3>Mais durabilidade</h3><p>A limpeza correta prolonga a vida útil de estofados, carpetes e colchões.</p></div>
+<div class="card"><div class="ic">💰</div><h3>Valorização</h3><p>Um carro bem cuidado tem valor de revenda muito superior.</p></div>
+</div></div></section>
+
+<section><div class="wrap"><div class="promo">
+<img src="assets/tapete.jpg" alt="Mascote Super Hero Clean higienizando um tapete" loading="lazy">
+<div><span class="tag" style="background:var(--gold);color:#222">🔥 Oferta de carpetes</span>
+<h2>Carpete limpo pelo melhor preço</h2>
+<div class="badge">A partir de R$ 12,00/m²</div>
+<p style="margin-bottom:20px;color:#d6e7ff">Ar mais puro, menos alérgenos e fibras protegidas. Informe a metragem e receba o valor na hora.</p>
+<a class="btn wa" href="#" data-wa="Olá! Quero higienizar meu carpete (promoção R$ 12/m²).">💬 Quero esta oferta</a></div>
+</div></div></section>
+
+<section id="precos" class="alt"><div class="wrap">
+<h2>Tabela de preços</h2><p class="sub">Valores de referência. O preço final depende do tamanho, do nível de sujeira e de serviços adicionais.</p>
+<div class="tabs" role="tablist" id="tabs"></div>
+<div class="plist" id="plist"></div>
+<p class="note">ℹ️ Fatores que alteram o preço: dimensão, nível de sujeira e serviços adicionais.</p>
+</div></section>
+
+<section><div class="wrap calc">
+<div><h2>Simule seu orçamento</h2><p class="sub">Escolha o serviço e veja a faixa de valor em segundos.</p>
+<label for="svc">Serviço</label><select id="svc"></select>
+<div id="qbox" hidden><label for="qty">Metragem (m²)</label><input id="qty" type="number" min="1" value="6"></div></div>
+<div class="res"><span>Estimativa</span><strong id="out">—</strong><a class="btn wa" id="calcwa" href="#">💬 Confirmar no WhatsApp</a></div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+<h2>Como funciona</h2><p class="sub">Simples, rápido e sem dor de cabeça.</p>
+<div class="grid steps">
+<div class="card"><h3>Chame no WhatsApp</h3><p>Envie fotos e conte o que precisa limpar.</p></div>
+<div class="card"><h3>Receba o orçamento</h3><p>Valor claro, sem surpresas, com a faixa certa para o seu caso.</p></div>
+<div class="card"><h3>Agende e relaxe</h3><p>Nossa equipe vai até você e entrega tudo limpo e cheiroso.</p></div>
+</div></div></section>
+
+<section><div class="wrap">
+<h2>Onde atendemos</h2><p class="sub">Porto Alegre e região metropolitana. Não achou sua cidade? Pergunte no WhatsApp.</p>
+<div class="chips"><span>Porto Alegre</span><span>Canoas</span><span>Cachoeirinha</span><span>Gravataí</span><span>Alvorada</span><span>Viamão</span><span>Esteio</span><span>Sapucaia do Sul</span><span>São Leopoldo</span><span>Novo Hamburgo</span></div>
+</div></section>
+
+<section class="alt"><div class="wrap">
+<h2>Dúvidas frequentes</h2><p class="sub">&nbsp;</p>
+<details><summary>Quanto tempo leva para secar?</summary><p>O tempo varia conforme o tecido e o clima. Na maioria dos casos o estofado fica pronto para uso em poucas horas. Combine os detalhes no orçamento.</p></details>
+<details><summary>Os produtos são seguros para crianças e pets?</summary><p>Utilizamos produtos de qualidade e seguros, aplicados por equipe treinada e com equipamentos profissionais.</p></details>
+<details><summary>Vocês vão até a minha casa?</summary><p>Sim, atendemos Porto Alegre e região metropolitana. Confirme a disponibilidade da sua cidade pelo WhatsApp.</p></details>
+<details><summary>Como sei o valor exato?</summary><p>Envie fotos pelo WhatsApp e retornamos com o orçamento. Use também o simulador acima como referência.</p></details>
+</div></section>
+
+<section class="final"><div class="wrap">
+<h2>Pronto para deixar tudo como novo?</h2><p class="sub">Peça seu orçamento agora. Resposta rápida pelo WhatsApp.</p>
+<a class="btn wa" href="#" data-wa="Olá! Quero agendar uma higienização.">💬 51 99511-0839</a>
+</div></section>
+</main>
+
+<footer>© Super Hero Clean · Higienização profissional · Porto Alegre e região<br><a href="https://www.instagram.com/super_heroclean" target="_blank" rel="noopener">Instagram @super_heroclean</a></footer>
+<a class="fab" href="#" data-wa="Olá! Vim pelo site." aria-label="Falar no WhatsApp">💬</a>
+
+<script>
+var N="5551995110839";
+function wa(t){return"https://wa.me/"+N+"?text="+encodeURIComponent(t)}
+document.querySelectorAll("[data-wa]").forEach(function(a){a.href=wa(a.dataset.wa);a.target="_blank";a.rel="noopener"});
+var D={"Estofados":[["Sofá 2 a 3 lugares",150,300],["Sofá retrátil / reclinável",250,500],["Sofá de canto / em L",450,800],["Poltrona ou cadeira estofada",80,200]],
+"Veículos":[["Higienização interna completa",290,450],["Parcial (apenas bancos)",80,150],["Bancos de couro (limpeza + hidratação)",100,180],["Teto",100,250]],
+"Colchões":[["Solteiro",70,110],["Casal padrão",130,230],["Queen / King size",140,350]],
+"Carpetes":[["Carpete (por m²)",12,45]]};
+var f=function(n){return"R$ "+n.toLocaleString("pt-BR",{minimumFractionDigits:2})};
+var tabs=document.getElementById("tabs"),pl=document.getElementById("plist");
+function show(k){Array.from(tabs.children).forEach(function(b){b.setAttribute("aria-selected",b.textContent===k)});
+pl.innerHTML=D[k].map(function(r){return'<div class="price"><span>'+r[0]+'</span><b>'+f(r[1])+" a "+f(r[2])+(k==="Carpetes"?" / m²":"")+"</b></div>"}).join("")}
+Object.keys(D).forEach(function(k){var b=document.createElement("button");b.className="tab";b.textContent=k;b.setAttribute("role","tab");b.onclick=function(){show(k)};tabs.appendChild(b)});show("Estofados");
+var s=document.getElementById("svc"),q=document.getElementById("qty"),o=document.getElementById("out"),qb=document.getElementById("qbox"),cw=document.getElementById("calcwa"),L=[];
+Object.keys(D).forEach(function(k){D[k].forEach(function(r){L.push(r);s.add(new Option(k+": "+r[0],L.length-1))})});
+function calc(){var r=L[s.value],c=r[0].indexOf("m²")>-1,m=c?Math.max(1,+q.value||1):1;qb.hidden=!c;
+o.textContent=f(r[1]*m)+" a "+f(r[2]*m);
+cw.href=wa("Olá! Simulei no site: "+r[0]+(c?" ("+m+" m²)":"")+" — "+o.textContent+". Podem confirmar o orçamento?")}
+s.onchange=q.oninput=calc;calc();
+</script>
+</body>
+</html>****
