@@ -55,13 +55,29 @@ details{background:var(--card);border:1px solid var(--line);border-radius:14px;p
 footer{background:#061a47;color:#a9bddf;text-align:center;padding:28px 20px;font-size:.9rem}footer a{color:var(--sky)}
 .fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;font-size:1.9rem;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.3)}
 .ig{background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);color:#fff}.igb{background:linear-gradient(120deg,var(--navy),var(--blue));color:#fff;border-radius:28px;padding:36px clamp(20px,4vw,56px);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}.igb .ico{width:64px;height:64px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);flex:none}.igb h2{color:#fff;margin:0 0 4px}.igb p{color:#d6e7ff;max-width:560px}.igb .l{display:flex;align-items:center;gap:20px;flex:1;min-width:280px}@media(min-width:900px){.hero{padding:72px 0 80px;min-height:78vh;display:flex;align-items:center}.hero .wrap{grid-template-columns:1.2fr .8fr;gap:64px}.hero h1{font-size:clamp(3rem,4.6vw,4.4rem)}.logo{max-width:460px}.hero p{font-size:1.2rem;max-width:620px}section{padding:88px 0}.grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}.promo img{max-height:520px}.plist{display:grid;grid-template-columns:1fr 1fr}.plist .price:nth-child(odd){border-right:1px solid var(--line)}}@media(max-width:760px){.hero .wrap,.promo,.calc{grid-template-columns:1fr}.trust .wrap{grid-template-columns:1fr 1fr}section{padding:48px 0}.logo{max-width:280px}header .hide{display:none}}
+
+@media(min-width:900px) and (min-height:540px){
+html,body{height:100%;overflow:hidden}body{display:flex;flex-direction:column}
+header{position:relative;flex:none}
+main{flex:1;min-height:0;display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none}main::-webkit-scrollbar{display:none}
+main>section,main>.pn{flex:0 0 100%;width:100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always;overflow-y:auto;overflow-x:hidden;display:flex;flex-direction:column;justify-content:center;padding-bottom:84px}
+main>section{padding-top:24px}
+.pn>section{padding-top:20px;padding-bottom:20px;min-height:0}
+.pn>.hero{flex:1;min-height:0;display:flex;align-items:center;padding:24px 0}.pn>.trust{flex:none;margin-bottom:84px;padding:16px 0}.pn:has(.hero){padding-bottom:0}
+.hero h1{font-size:clamp(2.4rem,4.2vw,4rem)}
+.sub{margin-bottom:22px}footer{display:none}
+.nav{display:flex;position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);gap:14px;align-items:center;background:var(--navy);padding:8px 14px;border-radius:999px;z-index:25;box-shadow:0 8px 24px rgba(0,0,0,.3)}
+.arr{width:38px;height:38px;border-radius:50%;border:2px solid var(--sky);background:transparent;color:#fff;font-size:1.4rem;line-height:1;cursor:pointer}.arr:hover{background:var(--blue)}
+.dots{display:flex;gap:8px}.dots button{width:10px;height:10px;border-radius:99px;border:0;background:#6d8fd0;cursor:pointer;padding:0;transition:width .2s}.dots button.on{width:28px;background:var(--sky)}
+}
+.nav{display:none}
 </style>
 </head>
 <body>
 <header><div class="wrap"><b>SUPER <span>HERO</span> CLEAN</b><div style="display:flex;gap:10px;align-items:center"><a class="btn ig hide" href="https://www.instagram.com/super_heroclean" target="_blank" rel="noopener">Instagram</a><a class="btn wa" href="#" data-wa="Olá! Vim pelo site e quero um orçamento.">WhatsApp</a></div></div></header>
 
 <main>
-<section class="hero"><div class="wrap">
+<div class="pn"><section class="hero"><div class="wrap">
 <div>
 <span class="tag">📍 Porto Alegre e região metropolitana</span>
 <h1>Seu estofado, carpete e carro <em>limpos como novos.</em></h1>
@@ -71,7 +87,7 @@ footer{background:#061a47;color:#a9bddf;text-align:center;padding:28px 20px;font
 <div class="logo"><img src="assets/logo.jpg" alt="Mascote e logo Super Hero Clean: higienização de estofados, tapetes, automotivos e pisos"></div>
 </div></section>
 
-<div class="trust"><div class="wrap"><div>✅ Equipe treinada</div><div>🌿 Produtos seguros</div><div>⚡ Orçamento rápido</div><div>🏠 Atendimento a domicílio</div></div></div>
+<div class="trust"><div class="wrap"><div>✅ Equipe treinada</div><div>🌿 Produtos seguros</div><div>⚡ Orçamento rápido</div><div>🏠 Atendimento a domicílio</div></div></div></div>
 
 <section id="servicos"><div class="wrap">
 <h2>Nossos serviços</h2><p class="sub">Escolha o que precisa de uma limpeza de verdade e chame no WhatsApp.</p>
@@ -115,7 +131,7 @@ footer{background:#061a47;color:#a9bddf;text-align:center;padding:28px 20px;font
 <div class="res"><span>Estimativa</span><strong id="out">—</strong><a class="btn wa" id="calcwa" href="#">💬 Confirmar no WhatsApp</a></div>
 </div></section>
 
-<section class="alt"><div class="wrap">
+<div class="pn"><section class="alt"><div class="wrap">
 <h2>Como funciona</h2><p class="sub">Simples, rápido e sem dor de cabeça.</p>
 <div class="grid steps">
 <div class="card"><h3>Chame no WhatsApp</h3><p>Envie fotos e conte o que precisa limpar.</p></div>
@@ -126,9 +142,9 @@ footer{background:#061a47;color:#a9bddf;text-align:center;padding:28px 20px;font
 <section><div class="wrap">
 <h2>Onde atendemos</h2><p class="sub">Porto Alegre e região metropolitana. Não achou sua cidade? Pergunte no WhatsApp.</p>
 <div class="chips"><span>Porto Alegre</span><span>Canoas</span><span>Cachoeirinha</span><span>Gravataí</span><span>Alvorada</span><span>Viamão</span><span>Esteio</span><span>Sapucaia do Sul</span><span>São Leopoldo</span><span>Novo Hamburgo</span></div>
-</div></section>
+</div></section></div>
 
-<section class="alt"><div class="wrap">
+<div class="pn"><section class="alt"><div class="wrap">
 <h2>Dúvidas frequentes</h2><p class="sub">&nbsp;</p>
 <details><summary>Quanto tempo leva para secar?</summary><p>O tempo varia conforme o tecido e o clima. Na maioria dos casos o estofado fica pronto para uso em poucas horas. Combine os detalhes no orçamento.</p></details>
 <details><summary>Os produtos são seguros para crianças e pets?</summary><p>Utilizamos produtos de qualidade e seguros, aplicados por equipe treinada e com equipamentos profissionais.</p></details>
@@ -136,7 +152,7 @@ footer{background:#061a47;color:#a9bddf;text-align:center;padding:28px 20px;font
 <details><summary>Como sei o valor exato?</summary><p>Envie fotos pelo WhatsApp e retornamos com o orçamento. Use também o simulador acima como referência.</p></details>
 </div></section>
 
-<section><div class="wrap"><div class="igb"><div class="l"><div class="ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></div><div><h2>Siga a gente no Instagram</h2><p>Veja trabalhos reais, antes e depois e promoções de <b>@super_heroclean</b>.</p></div></div><a class="btn ig" href="https://www.instagram.com/super_heroclean" target="_blank" rel="noopener">Seguir @super_heroclean</a></div></div></section>
+<section><div class="wrap"><div class="igb"><div class="l"><div class="ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></div><div><h2>Siga a gente no Instagram</h2><p>Veja trabalhos reais, antes e depois e promoções de <b>@super_heroclean</b>.</p></div></div><a class="btn ig" href="https://www.instagram.com/super_heroclean" target="_blank" rel="noopener">Seguir @super_heroclean</a></div></div></section></div>
 
 <section class="final"><div class="wrap">
 <h2>Pronto para deixar tudo como novo?</h2><p class="sub">Peça seu orçamento agora. Resposta rápida pelo WhatsApp.</p>
@@ -147,6 +163,7 @@ footer{background:#061a47;color:#a9bddf;text-align:center;padding:28px 20px;font
 <footer>© Super Hero Clean · Higienização profissional · Porto Alegre e região<br><a href="https://www.instagram.com/super_heroclean" target="_blank" rel="noopener">Instagram @super_heroclean</a></footer>
 <a class="fab" href="#" data-wa="Olá! Vim pelo site." aria-label="Falar no WhatsApp">💬</a>
 
+<div class="nav"><button class="arr" id="prv" aria-label="Página anterior">‹</button><div class="dots" id="dots"></div><button class="arr" id="nxt" aria-label="Próxima página">›</button></div>
 <script>
 var N="5551995110839";
 function wa(t){return"https://wa.me/"+N+"?text="+encodeURIComponent(t)}
@@ -166,6 +183,18 @@ function calc(){var r=L[s.value],c=r[0].indexOf("m²")>-1,m=c?Math.max(1,+q.valu
 o.textContent=f(r[1]*m)+" a "+f(r[2]*m);
 cw.href=wa("Olá! Simulei no site: "+r[0]+(c?" ("+m+" m²)":"")+" — "+o.textContent+". Podem confirmar o orçamento?")}
 s.onchange=q.oninput=calc;calc();
+
+(function(){var mq=matchMedia("(min-width:900px) and (min-height:540px)"),m=document.querySelector("main"),P=[].slice.call(m.children),d=document.getElementById("dots"),L=["Início","Serviços","Benefícios","Oferta","Preços","Simulador","Como funciona","Dúvidas","Contato"],lock=0;
+P.forEach(function(p,i){var b=document.createElement("button");b.title=L[i]||"";b.setAttribute("aria-label",L[i]||"Página "+(i+1));b.onclick=function(){go(i)};d.appendChild(b)});
+function cur(){return Math.round(m.scrollLeft/m.clientWidth)}
+function go(i){i=Math.max(0,Math.min(P.length-1,i));m.scrollTo({left:i*m.clientWidth,behavior:"smooth"})}
+function mark(){var c=cur();[].forEach.call(d.children,function(b,i){b.className=i===c?"on":""})}
+m.addEventListener("scroll",mark);mark();
+document.getElementById("prv").onclick=function(){go(cur()-1)};document.getElementById("nxt").onclick=function(){go(cur()+1)};
+document.addEventListener("keydown",function(e){if(!mq.matches||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;if(e.key==="ArrowRight")go(cur()+1);if(e.key==="ArrowLeft")go(cur()-1)});
+m.addEventListener("wheel",function(e){if(!mq.matches||Math.abs(e.deltaY)<Math.abs(e.deltaX))return;var p=P[cur()];if(p.scrollHeight>p.clientHeight+2)return;e.preventDefault();var n=Date.now();if(n-lock<550)return;lock=n;go(cur()+(e.deltaY>0?1:-1))},{passive:false});
+window.addEventListener("resize",function(){if(mq.matches)m.scrollLeft=cur()*m.clientWidth});
+})();
 </script>
 </body>
 </html>
