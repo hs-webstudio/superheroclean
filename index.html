@@ -12,7 +12,7 @@
 *{box-sizing:border-box;margin:0}html{scroll-behavior:smooth;scroll-padding-top:70px;height:100%}
 body{font-family:var(--bf);background:var(--bg);color:var(--text);line-height:1.55;overflow-x:hidden}
 h1,h2,h3{font-family:var(--hf);line-height:1.1}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.wrap{max-width:1360px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
 section{padding:64px 0}.alt{background:var(--sec)}
 h2{font-size:clamp(1.6rem,4vw,2.3rem);font-style:italic;font-weight:800;color:var(--blue);margin-bottom:8px}
 .sub{color:var(--muted);margin-bottom:32px;max-width:620px}
@@ -54,11 +54,11 @@ details{background:var(--card);border:1px solid var(--line);border-radius:14px;p
 .final{background:linear-gradient(135deg,var(--navy),var(--blue));color:#fff;text-align:center}.final h2{color:#fff}.final .sub{margin:0 auto 24px;color:#d6e7ff}
 footer{background:#061a47;color:#a9bddf;text-align:center;padding:28px 20px;font-size:.9rem}footer a{color:var(--sky)}
 .fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;font-size:1.9rem;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.3)}
-@media(max-width:760px){.hero .wrap,.promo,.calc{grid-template-columns:1fr}.trust .wrap{grid-template-columns:1fr 1fr}section{padding:48px 0}.logo{max-width:280px}header .hide{display:none}}
+.ig{background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);color:#fff}.igb{background:linear-gradient(120deg,var(--navy),var(--blue));color:#fff;border-radius:28px;padding:36px clamp(20px,4vw,56px);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}.igb .ico{width:64px;height:64px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);flex:none}.igb h2{color:#fff;margin:0 0 4px}.igb p{color:#d6e7ff;max-width:560px}.igb .l{display:flex;align-items:center;gap:20px;flex:1;min-width:280px}@media(min-width:900px){.hero{padding:72px 0 80px;min-height:78vh;display:flex;align-items:center}.hero .wrap{grid-template-columns:1.2fr .8fr;gap:64px}.hero h1{font-size:clamp(3rem,4.6vw,4.4rem)}.logo{max-width:460px}.hero p{font-size:1.2rem;max-width:620px}section{padding:88px 0}.grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}.promo img{max-height:520px}.plist{display:grid;grid-template-columns:1fr 1fr}.plist .price:nth-child(odd){border-right:1px solid var(--line)}}@media(max-width:760px){.hero .wrap,.promo,.calc{grid-template-columns:1fr}.trust .wrap{grid-template-columns:1fr 1fr}section{padding:48px 0}.logo{max-width:280px}header .hide{display:none}}
 </style>
 </head>
 <body>
-<header><div class="wrap"><b>SUPER <span>HERO</span> CLEAN</b><a class="btn wa" href="#" data-wa="Olá! Vim pelo site e quero um orçamento.">WhatsApp</a></div></header>
+<header><div class="wrap"><b>SUPER <span>HERO</span> CLEAN</b><div style="display:flex;gap:10px;align-items:center"><a class="btn ig hide" href="https://www.instagram.com/super_heroclean" target="_blank" rel="noopener">Instagram</a><a class="btn wa" href="#" data-wa="Olá! Vim pelo site e quero um orçamento.">WhatsApp</a></div></div></header>
 
 <main>
 <section class="hero"><div class="wrap">
@@ -135,6 +135,8 @@ footer{background:#061a47;color:#a9bddf;text-align:center;padding:28px 20px;font
 <details><summary>Vocês vão até a minha casa?</summary><p>Sim, atendemos Porto Alegre e região metropolitana. Confirme a disponibilidade da sua cidade pelo WhatsApp.</p></details>
 <details><summary>Como sei o valor exato?</summary><p>Envie fotos pelo WhatsApp e retornamos com o orçamento. Use também o simulador acima como referência.</p></details>
 </div></section>
+
+<section><div class="wrap"><div class="igb"><div class="l"><div class="ico"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></div><div><h2>Siga a gente no Instagram</h2><p>Veja trabalhos reais, antes e depois e promoções de <b>@super_heroclean</b>.</p></div></div><a class="btn ig" href="https://www.instagram.com/super_heroclean" target="_blank" rel="noopener">Seguir @super_heroclean</a></div></div></section>
 
 <section class="final"><div class="wrap">
 <h2>Pronto para deixar tudo como novo?</h2><p class="sub">Peça seu orçamento agora. Resposta rápida pelo WhatsApp.</p>
