@@ -36,7 +36,7 @@ header .btn{padding:.55rem 1.1rem;font-size:.9rem}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero h1{color:#fff}:root:not([data-theme="light"]) .hero h1 em{color:var(--sky)}}
 .hero p{color:var(--muted);font-size:1.1rem;margin-bottom:1.4rem;max-width:34rem}.cta{display:flex;gap:.8rem;flex-wrap:wrap}
 .pills{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.4rem}.pills span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.35rem .9rem;font-size:.85rem;font-weight:600}
-.logo{background:#fff;border-radius:1.8rem;padding:.8rem;box-shadow:0 1.2rem 3rem rgba(11,42,107,.25);width:min(24rem,100%);margin:0 auto}.logo img{width:100%;display:block;border-radius:1.2rem}
+.logo{background:#fff;border-radius:1.8rem;padding:.8rem;box-shadow:0 1.2rem 3rem rgba(11,42,107,.25);width:min(24rem,100%);margin:0 auto}
 .promo{display:grid;grid-template-columns:1fr 1fr;background:var(--navy);color:#fff;border-radius:1.8rem;overflow:hidden;align-items:center}
 .promo{grid-template-columns:auto 1fr}.promo .pic{background:linear-gradient(135deg,#0e3a8a,#1565d8);padding:1.2rem;display:grid;place-items:center;align-self:stretch}.pic img{display:block;height:30rem;width:auto;max-width:100%;border-radius:1rem;box-shadow:0 .8rem 2rem rgba(0,0,0,.35)}.promo div{padding:2rem}.promo h2{color:#fff}.promo p{color:#d6e7ff;margin-bottom:1.2rem}
 .badge{display:inline-block;background:var(--red);color:#fff;font:800 1.5rem var(--hf);padding:.5rem 1.1rem;border-radius:.7rem;margin:.5rem 0 1rem;transform:rotate(-2deg)}
@@ -84,6 +84,16 @@ header{position:relative;flex:none}
 .fab{bottom:1rem;right:1.2rem;width:3.2rem;height:3.2rem;font-size:1.6rem}
 }
 #fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}.view{position:relative;z-index:1}
+.mascot{position:relative;animation:fl 4s ease-in-out infinite}.mascot img{width:100%;display:block;border-radius:1.2rem}.mascot svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.mascot svg *{transform-box:fill-box}
+.thumb{opacity:0;transform-origin:50% 100%;animation:th 7s ease-in-out infinite;filter:drop-shadow(0 3px 4px rgba(0,0,0,.35))}
+.wink{opacity:0;animation:wk 7s linear infinite}
+.spk use{opacity:0;transform-origin:50% 50%;animation:sp 7s ease-in-out infinite}.spk .s2{animation-delay:.25s}.spk .s3{animation-delay:.5s}
+@keyframes fl{50%{transform:translateY(-.4rem)}}
+@keyframes th{0%,22%{opacity:0;transform:scale(.5) rotate(0)}28%{opacity:1;transform:scale(1.18) rotate(-10deg)}33%{transform:scale(1) rotate(0)}38%{transform:translateY(-12px)}43%{transform:translateY(0)}48%{transform:translateY(-12px)}53%,68%{opacity:1;transform:translateY(0)}74%,100%{opacity:0;transform:scale(.7)}}
+@keyframes wk{0%,40%{opacity:0}41%,47%{opacity:1}48%,100%{opacity:0}}
+@keyframes sp{0%,28%{opacity:0;transform:scale(0) rotate(0)}38%{opacity:1;transform:scale(1.1) rotate(25deg)}50%{opacity:.4;transform:scale(.6) rotate(45deg)}60%{opacity:1;transform:scale(1) rotate(70deg)}70%,100%{opacity:0;transform:scale(0)}}
+@media (prefers-reduced-motion:reduce){.mascot,.thumb,.wink,.spk use{animation:none}.mascot svg{display:none}}
 </style>
 </head>
 <body>
@@ -101,7 +111,17 @@ header{position:relative;flex:none}
 <div class="cta"><a class="btn wa" href="#" data-wa="Olá! Quero um orçamento de higienização.">💬 Pedir orçamento grátis</a><button class="btn ghost" data-go="1">Conhecer serviços ›</button></div>
 <a class="igcard" href="https://www.instagram.com/super_heroclean" target="_blank" rel="noopener"><i><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></i><span><small>Siga no Instagram</small><b>@super_heroclean</b></span><span aria-hidden="true">›</span></a>
 <div class="pills"><span>✅ Equipe treinada</span><span>🌿 Produtos seguros</span><span>⚡ Orçamento rápido</span><span>🏠 A domicílio</span></div></div>
-<div class="logo"><img src="assets/logo.jpg" alt="Mascote e logo Super Hero Clean"></div>
+<div class="logo"><div class="mascot"><img src="assets/logo.jpg" alt="Mascote e logo Super Hero Clean">
+<svg viewBox="0 0 990 1081" aria-hidden="true">
+<defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#d7dce4"/></linearGradient>
+<linearGradient id="sk" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d5d5d6"/><stop offset="1" stop-color="#f1f3f3"/></linearGradient>
+<filter id="bl"><feGaussianBlur stdDeviation="1.6"/></filter>
+<path id="st" d="M0-14L3-3L14 0L3 3L0 14L-3 3L-14 0L-3-3Z"/></defs>
+<g class="wink"><ellipse cx="478" cy="183" rx="29" ry="34" fill="url(#sk)" filter="url(#bl)"/><path d="M455 191Q478 165 501 191" fill="none" stroke="#14213d" stroke-width="6.5" stroke-linecap="round"/></g>
+<g class="thumb"><path d="M499 352a14 14 0 0 1 28 0V392H537a28 28 0 0 1 28 28V434a30 30 0 0 1-30 30H513a30 30 0 0 1-30-30V418a26 26 0 0 1 16-26Z" fill="url(#gl)" stroke="#0a1a3d" stroke-width="4" stroke-linejoin="round"/>
+<path d="M530 412h26M530 428h28M530 444h22" stroke="#aeb6c4" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M507 362v22" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".9"/></g>
+<g class="spk"><use href="#st" x="560" y="345" fill="#fff" stroke="#38b6ff" stroke-width="2"/><use class="s2" href="#st" x="485" y="318" fill="#fff" stroke="#38b6ff" stroke-width="2"/><use class="s3" href="#st" x="578" y="392" fill="#fff" stroke="#38b6ff" stroke-width="2"/></g>
+</svg></div></div>
 </div></section>
 
 <section class="slide" id="servicos" data-t="Serviços"><div class="in">
