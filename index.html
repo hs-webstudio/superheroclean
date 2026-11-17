@@ -35,7 +35,7 @@ header .btn{padding:.55rem 1.1rem;font-size:.9rem}
 .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:2.5rem;align-items:center}
 .tag{display:inline-block;background:var(--navy);color:#fff;border-radius:999px;padding:.4rem .9rem;font-size:.85rem;font-weight:600;margin-bottom:1rem}
 .hero h1{font-size:clamp(2rem,5vw,3.8rem);font-style:italic;font-weight:800;color:var(--navy);margin-bottom:1rem}.hero h1 em{color:var(--blue)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero h1{color:#fff}:root:not([data-theme="light"]) .hero h1 em{color:var(--sky)}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero h1{color:#fff}:root:not([data-theme="light"]) .hero h1 em{color:var(--sky)}:root:not([data-theme="light"]) h2{color:var(--sky)}:root:not([data-theme="light"]) .price b,:root:not([data-theme="light"]) .tab:not([aria-selected="true"]){color:var(--sky)}}
 .hero p{color:var(--muted);font-size:1.1rem;margin-bottom:1.4rem;max-width:34rem}.cta{display:flex;gap:.8rem;flex-wrap:wrap}
 .pills{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.3rem}.pills span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.35rem .85rem;font-size:.85rem;font-weight:600}
 .logo{background:#fff;border-radius:1.8rem;padding:.8rem;box-shadow:0 1.2rem 3rem rgba(11,42,107,.25);width:min(24rem,100%);margin:0 auto}
@@ -48,7 +48,10 @@ header .btn{padding:.55rem 1.1rem;font-size:.9rem}
 .offer div{flex:1}.offer h3{font-size:1.15rem}.offer h3 em{color:var(--gold);font-style:normal}.offer p{color:#d6e7ff;font-size:.88rem}
 .offer .btn{padding:.65rem 1.2rem;font-size:.9rem;flex:none}
 /* preços */
-.two{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.two{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(4,auto);gap:0 2rem;align-items:start}
+.two>div{display:grid;grid-row:span 4;grid-template-rows:subgrid;align-content:start}
+.two .sub{margin-bottom:1rem}.tabs{margin-bottom:.8rem}.fld{margin-bottom:.8rem}.fld select{height:2.9rem;padding:0 .8rem}.res{margin-top:0}
+.two .res{align-self:start;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .tabs{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.8rem;background:var(--sec);padding:.3rem;border-radius:999px;width:fit-content;border:1px solid var(--line)}
 .tab{padding:.5rem .95rem;border-radius:999px;border:0;background:transparent;color:var(--blue);font:700 .88rem var(--hf)}.tab[aria-selected="true"]{background:var(--blue);color:#fff}
 .plist{background:var(--card);border:1px solid var(--line);border-radius:1.2rem;overflow:hidden}
@@ -56,7 +59,7 @@ header .btn{padding:.55rem 1.1rem;font-size:.9rem}
 .note{font-size:.8rem;color:var(--muted);margin-top:.6rem}
 label{font-weight:600;font-size:.9rem;display:block;margin:.6rem 0 .25rem}
 select,input{width:100%;padding:.7rem;border-radius:.8rem;border:2px solid var(--line);background:var(--card);color:var(--text);font:inherit}
-.res{background:var(--navy);color:#fff;border-radius:1.2rem;padding:1.2rem;text-align:center;margin-top:1rem}.res strong{display:block;font:800 1.6rem var(--hf);color:var(--sky);margin:.2rem 0 .7rem}
+.res{background:var(--navy);color:#fff;border-radius:1.2rem;padding:1.2rem;text-align:center}.res strong{display:block;font:800 1.6rem var(--hf);color:var(--sky);margin:.2rem 0 .7rem}
 /* como funciona */
 .step{position:relative;padding-top:2.2rem}.step:before{content:attr(data-n);position:absolute;top:-1rem;left:1.2rem;width:2.4rem;height:2.4rem;border-radius:50%;background:var(--blue);color:#fff;font:800 1.2rem var(--hf);display:grid;place-items:center}
 .area{margin-top:1.1rem;font-size:.92rem;color:var(--muted)}.area b{color:var(--blue)}
@@ -77,7 +80,7 @@ details p{color:var(--muted);font-size:.9rem;margin-top:.45rem}
 @media(max-width:760px){
 header{padding:.55rem 1rem}header .hi{display:none}.menu{order:3;width:100%}
 .slide{padding:1.9rem 0}h2{margin-bottom:.25rem}.sub{margin-bottom:1rem;font-size:.93rem}
-.hero,.two{grid-template-columns:1fr;gap:1.2rem}.logo{width:8.5rem;padding:.4rem;border-radius:1.2rem;order:-1;margin:0}
+.hero,.two{grid-template-columns:1fr;gap:1.2rem}.two>div{display:block;grid-row:auto}.res{margin-top:1rem}.logo{width:8.5rem;padding:.4rem;border-radius:1.2rem;order:-1;margin:0}
 .tag{margin-bottom:.7rem;font-size:.8rem}.hero h1{margin-bottom:.7rem}.hero p{font-size:1rem;margin-bottom:1rem}
 .cta .btn{flex:1;padding:.8rem 1rem}.pills{margin-top:1rem;gap:.4rem}.pills span{font-size:.78rem;padding:.3rem .7rem}
 .g{gap:.6rem}.g4{grid-template-columns:1fr 1fr}.g3,.g2{grid-template-columns:1fr}
@@ -155,11 +158,11 @@ header{position:relative;flex:none;flex-wrap:nowrap;height:4rem;padding-block:0}
 
 <section class="slide" id="precos" data-t="Preços"><div class="in two">
 <div><h2>Tabela de preços</h2><p class="sub">Valores de referência por serviço.</p>
-<div class="tabs" role="tablist" id="tabs"></div><div class="plist" id="plist"></div>
-<p class="note">ℹ️ O valor final depende do tamanho, da sujeira e de adicionais.</p></div>
-<div><h2>Simule seu orçamento</h2>
-<label for="svc">Serviço</label><select id="svc"></select>
-<div id="qbox" hidden><label for="qty">Metragem (m²)</label><input id="qty" type="number" min="1" value="6" inputmode="numeric"></div>
+<div class="tabs" role="tablist" id="tabs"></div><div><div class="plist" id="plist"></div>
+<p class="note">ℹ️ O valor final depende do tamanho, da sujeira e de adicionais.</p></div></div>
+<div><h2>Simule seu orçamento</h2><p class="sub">Escolha o serviço e veja a faixa de valor.</p>
+<div class="fld"><select id="svc" aria-label="Serviço"></select>
+<div id="qbox" hidden><label for="qty">Metragem (m²)</label><input id="qty" type="number" min="1" value="6" inputmode="numeric"></div></div>
 <div class="res"><span>Estimativa</span><strong id="out">—</strong><a class="btn wa" id="calcwa" href="#">💬 Confirmar no WhatsApp</a></div></div>
 </div></section>
 
@@ -170,7 +173,7 @@ header{position:relative;flex:none;flex-wrap:nowrap;height:4rem;padding-block:0}
 <div class="card step" data-n="2"><h3>Receba o orçamento</h3><p>Valor claro, sem surpresas.</p></div>
 <div class="card step" data-n="3"><h3>Agende e relaxe</h3><p>Vamos até você e entregamos tudo limpo.</p></div>
 </div>
-<p class="area"><b>📍 Atendemos:</b> Porto Alegre, Canoas, Cachoeirinha, Gravataí, Alvorada, Viamão, Esteio, Sapucaia do Sul, São Leopoldo e Novo Hamburgo.</p>
+<p class="area"><b>📍 Atendemos:</b> Porto Alegre e região metropolitana.</p>
 <div class="faq"><h3>Dúvidas frequentes</h3><div class="g g2">
 <details><summary>Quanto tempo leva para secar?</summary><p>Depende do tecido e do clima. Em geral, o estofado fica pronto para uso em poucas horas.</p></details>
 <details><summary>É seguro para crianças e pets?</summary><p>Sim. Usamos produtos de qualidade e seguros, aplicados por equipe treinada.</p></details>
