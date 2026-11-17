@@ -7,8 +7,8 @@
 <meta name="description" content="Higienização profissional de sofás, colchões, carpetes e interior de veículos em Porto Alegre e região metropolitana. Peça seu orçamento pelo WhatsApp.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;1,800&family=Inter:wght@400;500;600&display=swap">
 <style>
-:root{--navy:#0b2a6b;--blue:#1565d8;--sky:#38b6ff;--bg:#fff;--card:#fff;--text:#14213d;--muted:#52607a;--line:#d6e4f7;--sec:#f3f8ff;--h1:#eaf4ff;--wa:#25d366;--gold:#ffc83d;--red:#e5262b;--hf:"Montserrat","Arial Black",Arial,sans-serif;--bf:"Inter",system-ui,Arial,sans-serif}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#071a42;--card:#0e2a63;--text:#eaf2ff;--muted:#a9bddf;--line:#1d3f86;--sec:#0a2253;--h1:#0a2253}}
+/* tema único (PC e celular iguais): azul claro, combinando com o logo */
+:root{color-scheme:light;--navy:#0f3d91;--ink:#0b2a6b;--blue:#1565d8;--sky:#38b6ff;--bg:#e4f1ff;--card:#fff;--text:#14213d;--muted:#4a5a78;--line:#c9ddf7;--sec:#eef6ff;--h1:#bfdcff;--wa:#25d366;--gold:#ffc83d;--red:#e5262b;--hf:"Montserrat","Arial Black",Arial,sans-serif;--bf:"Inter",system-ui,Arial,sans-serif}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;scroll-padding-top:6.8rem}
 body{font-family:var(--bf);color:var(--text);line-height:1.5;overflow-x:hidden;background:linear-gradient(160deg,var(--h1),var(--bg) 70%) fixed}
@@ -34,15 +34,24 @@ header .btn{padding:.55rem 1.1rem;font-size:.9rem}
 .card .ic{font-size:2rem;margin-bottom:.4rem}.card h3{font-size:1.1rem;color:var(--blue);margin-bottom:.3rem}.card p{color:var(--muted);font-size:.95rem}
 .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:2.5rem;align-items:center}
 .tag{display:inline-block;background:var(--navy);color:#fff;border-radius:999px;padding:.4rem .9rem;font-size:.85rem;font-weight:600;margin-bottom:1rem}
-.hero h1{font-size:clamp(2rem,5vw,3.8rem);font-style:italic;font-weight:800;color:var(--navy);margin-bottom:1rem}.hero h1 em{color:var(--blue)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero h1{color:#fff}:root:not([data-theme="light"]) .hero h1 em{color:var(--sky)}:root:not([data-theme="light"]) h2{color:var(--sky)}:root:not([data-theme="light"]) .price b,:root:not([data-theme="light"]) .tab:not([aria-selected="true"]){color:var(--sky)}}
+.hero h1{font-size:clamp(2rem,5vw,3.8rem);font-style:italic;font-weight:800;color:var(--ink);margin-bottom:1rem}.hero h1 em{color:var(--blue)}
 .hero p{color:var(--muted);font-size:1.1rem;margin-bottom:1.4rem;max-width:34rem}.cta{display:flex;gap:.8rem;flex-wrap:wrap}
 .pills{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.3rem}.pills span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.35rem .85rem;font-size:.85rem;font-weight:600}
 .logo{background:#fff;border-radius:1.8rem;padding:.8rem;box-shadow:0 1.2rem 3rem rgba(11,42,107,.25);width:min(24rem,100%);margin:0 auto}
-/* benefícios e oferta (dentro de Serviços) */
-.ben{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:1.1rem}.ben b{font:800 italic .95rem var(--hf);color:var(--navy);margin-right:.3rem}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ben b{color:var(--sky)}}
-.ben span{background:var(--sec);border:1px solid var(--line);border-radius:999px;padding:.3rem .8rem;font-size:.85rem;font-weight:600}
+/* por que higienizar (página própria, antes dos serviços) */
+.eyebrow{display:inline-block;background:var(--blue);color:#fff;border-radius:999px;padding:.3rem .85rem;font:800 italic .85rem var(--hf);margin-bottom:.6rem}
+.hook{font-size:clamp(1.7rem,3.6vw,2.8rem);font-style:italic;font-weight:800;color:var(--ink);margin-bottom:.4rem;max-width:52rem}.hook em{color:var(--blue)}
+.arg{display:flex;flex-direction:column;border-top:5px solid var(--blue)}
+.arg .k{font:800 .72rem var(--bf);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.arg .st{font:800 italic 1.9rem/1 var(--hf);color:var(--blue);margin:.35rem 0 .15rem}.arg .st small{display:block;font:600 .85rem var(--bf);color:var(--muted);margin-top:.25rem}
+.arg h3{margin-top:.6rem}.arg p{color:var(--text);font-size:.92rem}
+.arg.hl{background:linear-gradient(150deg,var(--navy),var(--blue));color:#fff;border:0}.arg.hl .k,.arg.hl .st small{color:#cfe2ff}.arg.hl .st{color:var(--gold)}.arg.hl h3{color:#fff}.arg.hl p{color:#e3efff}
+.chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:auto;padding-top:.7rem}.chips span{background:var(--sec);border:1px solid var(--line);border-radius:999px;padding:.2rem .65rem;font-size:.78rem;font-weight:600}
+.arg.hl .chips span{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.35)}
+.rule{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;background:var(--card);border:2px dashed var(--blue);border-radius:1.2rem;padding:.8rem 1rem;margin-top:1rem}
+.rule .ic{font-size:2rem}.rule .tx{flex:1;min-width:14rem}.rule h3{font-size:1.1rem;color:var(--ink)}.rule p{color:var(--muted);font-size:.9rem}
+.rule .btn{padding:.7rem 1.3rem;font-size:.95rem}.rule .more{font:700 .9rem var(--hf);color:var(--blue)}
+/* oferta (dentro de Serviços) */
 .offer{display:flex;align-items:center;gap:1rem;background:var(--navy);color:#fff;border-radius:1.2rem;padding:.8rem 1rem .8rem .8rem;margin-top:1.1rem}
 .offer img{width:5rem;height:5rem;object-fit:cover;border-radius:.8rem;flex:none;background:#0e3a8a}
 .offer div{flex:1}.offer h3{font-size:1.15rem}.offer h3 em{color:var(--gold);font-style:normal}.offer p{color:#d6e7ff;font-size:.88rem}
@@ -85,7 +94,7 @@ header{padding:.55rem 1rem}header .hi{display:none}.menu{order:3;width:100%}
 .cta .btn{flex:1;padding:.8rem 1rem}.pills{margin-top:1rem;gap:.4rem}.pills span{font-size:.78rem;padding:.3rem .7rem}
 .g{gap:.6rem}.g4{grid-template-columns:1fr 1fr}.g3,.g2{grid-template-columns:1fr}
 .card{padding:.9rem;border-radius:1rem}.card .ic{font-size:1.6rem;margin-bottom:.2rem}.card h3{font-size:1rem}.card p{font-size:.82rem;line-height:1.4}
-.ben b{width:100%}.ben span{font-size:.78rem;padding:.25rem .65rem}
+.hook{font-size:1.55rem}.arg .st{font-size:1.6rem}.arg p{font-size:.86rem}.chips span{font-size:.74rem}.rule{text-align:center;justify-content:center}.rule .btn{width:100%}
 .offer{flex-wrap:wrap}.offer img{width:4rem;height:4rem}.offer .btn{width:100%}
 .step{padding:.85rem .9rem .85rem 3.5rem}.step:before{top:50%;left:.8rem;transform:translateY(-50%);width:2.1rem;height:2.1rem;font-size:1rem}.step h3{margin-bottom:.1rem}
 .final .btn{width:100%}.igb{padding:1rem;margin-top:1.1rem}.igb .btn{width:100%}
@@ -132,7 +141,7 @@ header{position:relative;flex:none;flex-wrap:nowrap;height:4rem;padding-block:0}
 <div><span class="tag">📍 Porto Alegre e região metropolitana</span>
 <h1>Seu estofado, carpete e carro <em>limpos como novos.</em></h1>
 <p>Higienização profissional que elimina ácaros, manchas e odores, sem você sair de casa.</p>
-<div class="cta"><a class="btn wa" href="#" data-wa="Olá! Quero um orçamento de higienização.">💬 Orçamento grátis</a><button class="btn ghost" data-go="2">Ver preços ›</button></div>
+<div class="cta"><a class="btn wa" href="#" data-wa="Olá! Quero um orçamento de higienização.">💬 Orçamento grátis</a><button class="btn ghost" data-go="precos">Ver preços ›</button></div>
 <div class="pills"><span>✅ Equipe treinada</span><span>🌿 Produtos seguros</span><span>⚡ Resposta rápida</span><span>🏠 A domicílio</span></div></div>
 <div class="logo"><div class="mascot"><img src="assets/logo.jpg" alt="Mascote e logo Super Hero Clean">
 <svg viewBox="0 0 990 1081" aria-hidden="true">
@@ -140,6 +149,25 @@ header{position:relative;flex:none;flex-wrap:nowrap;height:4rem;padding-block:0}
 <filter id="bl"><feGaussianBlur stdDeviation="1.6"/></filter></defs>
 <g class="wink"><ellipse cx="478" cy="183" rx="29" ry="34" fill="url(#sk)" filter="url(#bl)"/><path d="M455 191Q478 165 501 191" fill="none" stroke="#14213d" stroke-width="6.5" stroke-linecap="round"/></g>
 </svg></div></div>
+</div></section>
+
+<section class="slide" id="porque" data-t="Por que higienizar"><div class="in">
+<span class="eyebrow">Por que higienizar?</span>
+<h2 class="hook">Você divide o sofá com <em>milhões de hóspedes invisíveis.</em></h2>
+<p class="sub">Não é só deixar com cara de limpo. É tirar o que você não vê, mas respira, sente no cheiro e paga no bolso.</p>
+<div class="g g3">
+<div class="card arg hl"><span class="k">🫁 Saúde</span><div class="st">Milhões de ácaros<small>podem viver em um único sofá</small></div>
+<h3>Menos alergias</h3><p>Eles se alimentam da pele que perdemos todo dia. As fezes deles ficam presas na espuma e viram poeira no ar, gatilho de rinite, coriza e crises de espirro.</p>
+<div class="chips"><span>🤧 Rinite</span><span>😴 Sono melhor</span><span>👶 Crianças</span></div></div>
+<div class="card arg"><span class="k">🧽 Efeito esponja</span><div class="st">Fim dos odores<small>o tecido absorve tudo, todo dia</small></div>
+<h3>Cheiro eliminado na origem</h3><p>Suor, oleosidade, pelos, restos de comida e fumaça entram no tecido. Para o seu pet, com olfato muito mais apurado, o sofá é um livro aberto de cheiros.</p>
+<div class="chips"><span>🚬 Cigarro</span><span>🐾 Animais</span><span>🍄 Mofo</span><span>🍕 Alimentos</span><span>💧 Suor</span></div></div>
+<div class="card arg"><span class="k">💰 Economia</span><div class="st">Dura mais<small>e você adia a compra de um novo</small></div>
+<h3>Poeira age como lixa</h3><p>A cada vez que alguém senta, grãos de poeira e areia raspam as fibras por dentro. Higienizar protege o que você pagou.</p>
+<div class="chips"><span>✨ Aspecto de novo</span><span>🎯 Remove manchas</span><span>🪶 Devolve a maciez</span><span>🚗 Carro vale mais</span></div></div>
+</div>
+<div class="rule"><div class="ic">🗓️</div><div class="tx"><h3>A regra dos 6 meses</h3><p>Higienize os estofados a cada 6 meses, ou a cada 3 se tiver pets ou alérgicos em casa.</p></div>
+<a class="btn wa" href="#" data-wa="Olá! Vi no site a regra dos 6 meses e quero agendar minha higienização.">💬 Agendar minha higienização</a><a class="more" href="#servicos">Veja o que limpamos ›</a></div>
 </div></section>
 
 <section class="slide" id="servicos" data-t="Serviços"><div class="in">
@@ -150,7 +178,6 @@ header{position:relative;flex:none;flex-wrap:nowrap;height:4rem;padding-block:0}
 <div class="card"><div class="ic">🚗</div><h3>Veículos</h3><p>Bancos, teto e interior limpos e valorizados.</p></div>
 <div class="card"><div class="ic">🧼</div><h3>Carpetes</h3><p>Cobrança por m², cores renovadas e fibras protegidas.</p></div>
 </div>
-<div class="ben"><b>Por que higienizar?</b><span>🫁 Menos alergias</span><span>✨ Aspecto de novo</span><span>🌬️ Fim dos odores</span><span>🛡️ Tecido dura mais</span><span>💰 Carro vale mais</span></div>
 <div class="offer"><img src="assets/tapete.jpg" alt="Mascote Super Hero Clean higienizando um tapete">
 <div><h3>🔥 Carpete a partir de <em>R$ 12/m²</em></h3><p>Ar mais puro e fibras protegidas. Informe a metragem e receba o valor.</p></div>
 <a class="btn wa" href="#" data-wa="Olá! Quero higienizar meu carpete (promoção R$ 12/m²).">💬 Quero a oferta</a></div>
@@ -232,7 +259,7 @@ var a=menu.children[i];if(a)menu.scrollLeft=a.offsetLeft-(menu.clientWidth-a.off
 pv.hidden=i===0;nx.hidden=i===S.length-1;pv.title=T[i-1]||"";nx.title=T[i+1]||""}
 /* celular: menu acompanha a rolagem */
 if("IntersectionObserver"in window){var io=new IntersectionObserver(function(es){if(mq.matches)return;es.forEach(function(e){if(e.isIntersecting){i=S.indexOf(e.target);ui()}})},{rootMargin:"-40% 0px -55% 0px"});S.forEach(function(x){io.observe(x)})}
-document.querySelectorAll("[data-go]").forEach(function(b){b.onclick=function(){go(+b.dataset.go)}});
+document.querySelectorAll("[data-go]").forEach(function(b){b.onclick=function(){go(S.findIndex(function(x){return x.id===b.dataset.go}))}});
 pv.onclick=function(){go(i-1)};nx.onclick=function(){go(i+1)};
 document.addEventListener("keydown",function(e){if(!mq.matches||/INPUT|SELECT|TEXTAREA|SUMMARY/.test(e.target.tagName))return;
 if(e.key==="ArrowRight"||e.key==="PageDown"||e.key===" ")go(i+1);else if(e.key==="ArrowLeft"||e.key==="PageUp")go(i-1);else if(e.key==="Home")go(0);else if(e.key==="End")go(S.length-1);else return;e.preventDefault()});
@@ -246,13 +273,12 @@ mq.onchange=function(){st.style.setProperty("--i",i);ui()};
 var h=location.hash.slice(1),k0=S.findIndex(function(x){return x.id===h});if(k0>0){i=k0;st.style.setProperty("--i",k0)}ui();
 })();
 
-/* fundo discreto + easter egg: toque no mascote solta bolhas */
+/* brilhos discretos + easter egg: toque no mascote solta bolhas */
 (function(){var c=document.getElementById("fx"),x=c.getContext("2d"),W,H,B=[],S=[],rm=matchMedia("(prefers-reduced-motion:reduce)").matches,run=0;
 function R(a,b){return a+Math.random()*(b-a)}
-function amb(fb){var r=R(4,13);return{x:R(0,W),y:fb?H+r+R(0,200):R(0,H),r:r,vx:0,vy:-R(.15,.4),ph:R(0,6.28),a:.45,pop:-1,pp:0,amb:1}}
 function init(){var d=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;c.width=W*d;c.height=H*d;x.setTransform(d,0,0,d,0,0);
-B=[];for(var i=0;i<(W<700?4:7);i++)B.push(amb(0));
-S=[];for(i=0;i<3;i++)S.push({x:R(0,W),y:R(0,H*.8),s:R(6,11),ph:R(0,6.28),sp:R(.0004,.0008)})}
+B=[];/* sem bolhas de fundo (pedido do cliente); só o easter egg do mascote */
+S=[];for(var i=0;i<3;i++)S.push({x:R(0,W),y:R(0,H*.8),s:R(6,11),ph:R(0,6.28),sp:R(.0004,.0008)})}
 function bub(b){var r=b.r,a=b.a,g=x.createRadialGradient(b.x-r*.35,b.y-r*.35,r*.05,b.x,b.y,r);
 g.addColorStop(0,"rgba(255,255,255,"+(.95*a)+")");g.addColorStop(.4,"rgba(190,225,255,"+(.3*a)+")");g.addColorStop(1,"rgba(70,150,255,"+(.2*a)+")");
 x.beginPath();x.arc(b.x,b.y,r,0,6.283);x.fillStyle=g;x.fill();x.lineWidth=1;x.strokeStyle="rgba(21,101,216,"+(.28*a)+")";x.stroke();
@@ -263,13 +289,13 @@ function frame(t){x.clearRect(0,0,W,H);
 for(var i=B.length-1;i>=0;i--){var b=B[i];
 if(b.pp>0){b.pp+=.05;var p=b.pp,a=1-p;x.lineWidth=1.5;x.strokeStyle="rgba(56,182,255,"+a*.8+")";x.beginPath();x.arc(b.x,b.y,b.r*(1+p*.9),0,6.283);x.stroke();
 for(var k=0;k<6;k++){var an=k*1.05,d=b.r*(1+p*1.6);x.fillStyle="rgba(255,255,255,"+a+")";x.beginPath();x.arc(b.x+Math.cos(an)*d,b.y+Math.sin(an)*d,1.8,0,6.283);x.fill()}
-if(p>=1){if(b.amb)B[i]=amb(1);else B.splice(i,1)}continue}
+if(p>=1)B.splice(i,1);continue}
 b.vx*=.98;b.x+=b.vx+Math.sin(t*.0009+b.ph)*.3;b.y+=b.vy;
-if(b.pop>0&&b.y<b.pop)b.pp=.01;else if(b.y<-b.r*2){if(b.amb)B[i]=amb(1);else B.splice(i,1);continue}bub(b)}
+if(b.pop>0&&b.y<b.pop)b.pp=.01;else if(b.y<-b.r*2){B.splice(i,1);continue}bub(b)}
 S.forEach(function(s){var a=.6*Math.pow(Math.max(0,Math.sin(t*s.sp+s.ph)),6);if(a>.02)star(s.x,s.y,s.s*(.6+a),a)});
 if(run&&!rm)requestAnimationFrame(frame)}
 function go(){if(!run){run=1;requestAnimationFrame(frame)}}
-function burst(cx,cy){for(var i=0;i<16;i++)B.push({x:cx+R(-30,30),y:cy+R(-20,20),r:R(6,22),vx:R(-2.5,2.5),vy:-R(1,3),ph:R(0,6.28),a:1,pop:cy-R(80,H*.6),pp:0,amb:0})}
+function burst(cx,cy){for(var i=0;i<16;i++)B.push({x:cx+R(-30,30),y:cy+R(-20,20),r:R(6,22),vx:R(-2.5,2.5),vy:-R(1,3),ph:R(0,6.28),a:1,pop:cy-R(80,H*.6),pp:0})}
 init();addEventListener("resize",function(){init();if(rm||!run)frame(0)});
 if(rm){frame(1500)}else go();
 document.addEventListener("visibilitychange",function(){if(document.hidden)run=0;else if(!rm)go()});
