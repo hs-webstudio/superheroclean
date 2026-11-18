@@ -338,6 +338,8 @@ document.addEventListener("click",function(e){var a=e.target.closest&&e.target.c
 var k=S.findIndex(function(x){return"#"+x.id===a.getAttribute("href")});if(k>-1&&mq.matches){e.preventDefault();go(k)}});
 mq.onchange=function(){st.style.setProperty("--i",i);ui()};
 var h=location.hash.slice(1),k0=S.findIndex(function(x){return x.id===h});if(k0>0){i=k0;st.style.setProperty("--i",k0)}ui();
+/* PC: o navegador rola o contêiner até a âncora (#precos) e soma com o deslocamento das páginas; mantém o contêiner parado */
+var vw=st.parentNode;function fixScroll(){if(mq.matches&&(vw.scrollLeft||vw.scrollTop)){vw.scrollLeft=0;vw.scrollTop=0}}vw.addEventListener("scroll",fixScroll);fixScroll();
 })();
 
 /* bolhas leves de fundo + easter egg: toque no mascote solta bolhas */
