@@ -56,6 +56,13 @@ header .btn{padding:.55rem 1.1rem;font-size:.9rem}
 .offer div{flex:1}.offer h3{font-size:1.15rem}.offer h3 em{color:var(--ice);font-style:normal}.offer p{color:#d6e7ff;font-size:.88rem}
 .offer[hidden],.tabs[hidden]{display:none}.price.muted{color:var(--muted)}
 .offer .btn{padding:.65rem 1.2rem;font-size:.9rem;flex:none}
+/* contato + trabalhos */
+.ct{display:grid;grid-template-columns:1fr 1.15fr;grid-template-rows:auto auto 1fr;grid-template-areas:"cta gal" "ig gal" "foot gal";gap:0 2.2rem;align-items:start;text-align:center}
+.ct-cta{grid-area:cta}.ct-gal{grid-area:gal;text-align:left}.ct-ig{grid-area:ig}.ct-foot{grid-area:foot}
+.ct-gal h3{font:italic 800 1.25rem var(--hf);color:var(--blue)}.ct-gal .mini{color:var(--muted);font-size:.88rem;margin-bottom:.7rem}
+.ct .gal-row,.ct .gal-row.few{grid-auto-columns:100%}
+.ct .igb{flex-direction:column;align-items:stretch;text-align:left}.ct .igb .btn{width:100%}
+.ct .gal-hint{display:none}.ct .gal-more{margin-top:.4rem}
 /* trabalhos (antes e depois) */
 .gal-row{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 2rem)/3);gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.gal-row::-webkit-scrollbar{display:none}.gal-row.few{grid-auto-columns:min(100%,32rem);justify-content:center}
 .ba{scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:1.2rem;padding:.6rem;box-shadow:0 .4rem 1.1rem rgba(21,101,216,.08)}
@@ -118,6 +125,8 @@ header{padding:.55rem 1rem}header .hi{display:none}.menu{order:3;width:100%}
 .g.args{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:86%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 -1.25rem;padding:0 1.25rem;scroll-padding:0 1.25rem}.g.args::-webkit-scrollbar{display:none}.args>.card{scroll-snap-align:start}
 .adots{display:flex;justify-content:center;gap:.4rem;margin-top:.8rem}.adots span{width:.45rem;height:.45rem;border-radius:99px;background:var(--line);transition:.3s}.adots span.on{width:1.2rem;background:var(--blue)}
 .gal-row{grid-auto-columns:100%}.gal-empty{padding:1.8rem 1.1rem}
+.ct{grid-template-columns:1fr;grid-template-rows:none;grid-template-areas:"cta" "gal" "ig" "foot"}.ct-gal{margin-top:1.2rem}
+.ct .igb{flex-direction:row;align-items:center;padding:.6rem .7rem}.ct .igb p,.ct .igb h3{display:none}.ct .igb .ico{width:2.6rem;height:2.6rem}.ct .igb .btn{width:auto;flex:1}
 .final .btn{width:100%}.igb{padding:1rem;margin-top:1.1rem}.igb .btn{width:100%}
 .fab{width:3.3rem;height:3.3rem;font-size:1.6rem}
 }
@@ -146,6 +155,7 @@ header{position:relative;flex:none;flex-wrap:nowrap;height:4rem;padding-block:0}
 .arrow:hover{background:var(--blue);color:#fff;transform:scale(1.1)}.arrow.l{left:1.2rem}.arrow.r{right:1.2rem}.arrow[hidden]{display:none}
 .dots{display:flex}
 .fab{right:1.2rem;width:3.2rem;height:3.2rem;font-size:1.6rem}
+.ct .ba-img{aspect-ratio:auto;height:clamp(11rem,38vh,21rem)}.final .sub{margin-bottom:.9rem}.ct .igb{margin-top:1rem}
 }
 #fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}.view{position:relative;z-index:1}
 .mascot{position:relative;animation:fl 4s ease-in-out infinite}.mascot img{width:100%;display:block;filter:drop-shadow(0 .8rem 1.2rem rgba(11,42,107,.22))}.mascot svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
@@ -211,11 +221,6 @@ header{position:relative;flex:none;flex-wrap:nowrap;height:4rem;padding-block:0}
 <a class="btn wa" id="promoBtn" href="#" data-wa="Olá! Quero higienizar meu carpete (promoção R$ 12/m²).">💬 Quero a oferta</a></div>
 </div></section>
 
-<section class="slide" id="trabalhos" data-t="Trabalhos"><div class="in">
-<h2>Trabalhos realizados</h2><p class="sub">Antes e depois de verdade, direto dos nossos atendimentos.</p>
-<div id="gal"></div>
-</div></section>
-
 <section class="slide" id="precos" data-t="Preços"><div class="in prices">
 <h2>Tabela de preços</h2><p class="sub">Valores de referência por serviço.</p>
 <div class="tabs" role="tablist" id="tabs"></div><div class="plist" id="plist"></div>
@@ -241,12 +246,15 @@ header{position:relative;flex:none;flex-wrap:nowrap;height:4rem;padding-block:0}
 
 <section class="slide final" id="contato" data-t="Contato"><div class="in">
 <h2>Pronto para deixar tudo como novo?</h2><p class="sub">Peça seu orçamento agora. Resposta rápida pelo WhatsApp.</p>
-<a class="btn wa" href="#" data-wa="Olá! Quero agendar uma higienização.">💬 51 99511-0839</a>
-<div class="hours"><p>🕗 Segunda a sexta, 8h às 18h · Sábado, 8h às 12h</p><span class="ost" id="ost" hidden></span></div>
-<div class="igb"><div class="l"><div class="ico ig"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></div><div><h3>Siga no Instagram</h3><p>Antes e depois, trabalhos reais e promoções.</p></div></div>
-<a class="btn ig" href="https://www.instagram.com/super_heroclean" target="_blank" rel="noopener">@super_heroclean</a></div>
-<p class="foot">© Super Hero Clean · Higienização profissional · Porto Alegre e região</p>
-<a class="btn area-f" href="admin/" rel="nofollow" aria-label="Admin (acesso restrito)">🔒 Admin</a>
+<div class="ct">
+<div class="ct-cta"><a class="btn wa" href="#" data-wa="Olá! Quero agendar uma higienização.">💬 51 99511-0839</a>
+<div class="hours"><p>🕗 Segunda a sexta, 8h às 18h · Sábado, 8h às 12h</p><span class="ost" id="ost" hidden></span></div></div>
+<div class="ct-gal"><h3>Trabalhos realizados</h3><p class="mini">Antes e depois de verdade, direto dos nossos atendimentos.</p><div id="gal"></div></div>
+<div class="ct-ig"><div class="igb"><div class="l"><div class="ico ig"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></div><div><h3>Siga no Instagram</h3><p>Antes e depois, trabalhos reais e promoções.</p></div></div>
+<a class="btn ig" href="https://www.instagram.com/super_heroclean" target="_blank" rel="noopener">@super_heroclean</a></div></div>
+<div class="ct-foot"><p class="foot">© Super Hero Clean · Higienização profissional · Porto Alegre e região</p>
+<a class="btn area-f" href="admin/" rel="nofollow" aria-label="Admin (acesso restrito)">🔒 Admin</a></div>
+</div>
 </div></section>
 
 </main></div>
