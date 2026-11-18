@@ -70,7 +70,7 @@ header .btn{padding:.55rem 1.1rem;font-size:.9rem}
 .gbtn{width:2.4rem;height:2.4rem;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--blue);font-size:1.3rem;line-height:1}
 .gal-empty{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.6rem;background:var(--card);border:2px dashed var(--line);border-radius:1.4rem;padding:2.5rem 1.5rem;max-width:40rem;margin:0 auto}
 .gal-empty .ic{font-size:2.8rem}.gal-empty h3{font-size:1.25rem;color:var(--blue)}.gal-empty p{color:var(--muted);max-width:28rem}
-.gal-nav[hidden]{display:none}.gal-hint{text-align:center;font-size:.8rem;color:var(--muted);margin-top:.5rem}
+.adots{display:none}.gal-nav[hidden]{display:none}.gal-hint{text-align:center;font-size:.8rem;color:var(--muted);margin-top:.5rem}
 .gal-more{display:block;text-align:center;margin-top:.8rem;font:700 .95rem var(--hf);color:var(--blue)}
 /* preços */
 .prices{max-width:46rem!important}
@@ -96,6 +96,9 @@ details p{color:var(--muted);font-size:.9rem;margin-top:.45rem}
 .igb h3{font-size:1.15rem}.igb p{color:#d6e7ff;font-size:.88rem}.igb .btn{font-size:.95rem;padding:.75rem 1.4rem}
 .foot{text-align:center;color:var(--muted);font-size:.8rem;margin-top:1.3rem}
 .arrow,.dots{display:none}
+.dots{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);gap:.5rem;background:var(--navy);padding:.55rem .8rem;border-radius:999px;z-index:30}
+.dots button{width:.6rem;height:.6rem;border-radius:99px;border:0;background:#6d8fd0;padding:0;transition:.3s}.dots button.on{width:1.8rem;background:var(--sky)}
+.dots .pg{display:none;color:#fff;font:700 .75rem var(--bf);margin-left:.25rem}
 .fab{position:fixed;right:1rem;bottom:1rem;z-index:30;width:3.6rem;height:3.6rem;border-radius:50%;background:var(--wa);display:grid;place-items:center;font-size:1.8rem;text-decoration:none;box-shadow:0 .5rem 1.4rem rgba(0,0,0,.3)}
 /* CELULAR: tudo compacto */
 @media(max-width:760px){
@@ -110,9 +113,20 @@ header{padding:.55rem 1rem}header .hi{display:none}.menu{order:3;width:100%}
 .hook{font-size:1.55rem}.arg .st{font-size:1.6rem}.arg p{font-size:.86rem}.chips span{font-size:.74rem}
 .offer{flex-wrap:wrap}.offer img{width:4rem;height:4rem}.offer .btn{width:100%}
 .step{padding:.85rem .9rem .85rem 3.5rem}.step:before{top:50%;left:.8rem;transform:translateY(-50%);width:2.1rem;height:2.1rem;font-size:1rem}.step h3{margin-bottom:.1rem}
+.g.args{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:86%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 -1.25rem;padding:0 1.25rem;scroll-padding:0 1.25rem}.g.args::-webkit-scrollbar{display:none}.args>.card{scroll-snap-align:start}
+.adots{display:flex;justify-content:center;gap:.4rem;margin-top:.8rem}.adots span{width:.45rem;height:.45rem;border-radius:99px;background:var(--line);transition:.3s}.adots span.on{width:1.2rem;background:var(--blue)}
 .gal-row{grid-auto-columns:100%}.gal-empty{padding:1.8rem 1.1rem}
 .final .btn{width:100%}.igb{padding:1rem;margin-top:1.1rem}.igb .btn{width:100%}
 .fab{width:3.3rem;height:3.3rem;font-size:1.6rem}
+}
+/* CELULAR/TABLET em pé: uma seção por tela, rolagem nativa com encaixe */
+@media (max-width:899px) and (min-height:500px){
+html{scroll-snap-type:y mandatory;scroll-padding-top:var(--hh,6rem)}
+.slide{min-height:calc(100vh - var(--hh,6rem));min-height:calc(100svh - var(--hh,6rem));display:flex;align-items:center;padding:1rem 0 3.6rem;scroll-snap-align:start;scroll-snap-stop:always}
+.dots{display:flex;align-items:center;gap:.4rem;padding:.5rem .8rem}.dots button{width:.45rem;height:.45rem}.dots button.on{width:1.3rem}.dots .pg{display:inline}
+}
+@media (max-width:899px) and (min-height:500px) and (max-height:780px){
+.slide{padding-bottom:3.3rem}.step{padding-top:.6rem;padding-bottom:.6rem}.area{margin-top:.7rem}.faq{margin-top:.7rem}.faq h3{margin-bottom:.4rem}.faq .g{gap:.45rem}details{padding:.55rem .85rem}
 }
 /* DESKTOP: páginas horizontais, sem rolagem vertical */
 @media(min-width:900px) and (min-height:560px){
@@ -128,8 +142,7 @@ header{position:relative;flex:none;flex-wrap:nowrap;height:4rem;padding-block:0}
 .g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
 .arrow{display:flex;align-items:center;justify-content:center;position:fixed;top:50%;margin-top:-1.4rem;width:3.4rem;height:3.4rem;border-radius:50%;background:var(--card);color:var(--blue);border:1px solid var(--line);box-shadow:0 .5rem 1.5rem rgba(11,42,107,.25);font-size:1.8rem;line-height:1;z-index:30;transition:.2s}
 .arrow:hover{background:var(--blue);color:#fff;transform:scale(1.1)}.arrow.l{left:1.2rem}.arrow.r{right:1.2rem}.arrow[hidden]{display:none}
-.dots{display:flex;position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);gap:.5rem;background:var(--navy);padding:.55rem .8rem;border-radius:999px;z-index:30}
-.dots button{width:.6rem;height:.6rem;border-radius:99px;border:0;background:#6d8fd0;padding:0;transition:.3s}.dots button.on{width:1.8rem;background:var(--sky)}
+.dots{display:flex}
 .fab{right:1.2rem;width:3.2rem;height:3.2rem;font-size:1.6rem}
 }
 #fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}.view{position:relative;z-index:1}
@@ -169,7 +182,7 @@ header{position:relative;flex:none;flex-wrap:nowrap;height:4rem;padding-block:0}
 <span class="eyebrow">Por que higienizar?</span>
 <h2 class="hook">Você divide o sofá com milhões de hóspedes invisíveis.</h2>
 <p class="sub">Não é só deixar com cara de limpo. É tirar o que você não vê, mas respira, sente no cheiro e paga no bolso.</p>
-<div class="g g3">
+<div class="g g3 args">
 <div class="card arg hl"><span class="k">🫁 Saúde</span><div class="st">Milhões de ácaros<small>podem viver em um único sofá</small></div>
 <h3>Menos alergias</h3><p>Eles se alimentam da pele que perdemos todo dia. As fezes deles ficam presas na espuma e viram poeira no ar, gatilho de rinite, coriza e crises de espirro.</p>
 <div class="chips"><span>🤧 Rinite</span><span>😴 Sono melhor</span><span>👶 Crianças</span></div></div>
@@ -180,6 +193,7 @@ header{position:relative;flex:none;flex-wrap:nowrap;height:4rem;padding-block:0}
 <h3>Poeira age como lixa</h3><p>A cada vez que alguém senta, grãos de poeira e areia raspam as fibras por dentro. Higienizar protege o que você pagou.</p>
 <div class="chips"><span>✨ Aspecto de novo</span><span>🎯 Remove manchas</span><span>🪶 Devolve a maciez</span><span>🚗 Carro vale mais</span></div></div>
 </div>
+<div class="adots" id="adots" aria-hidden="true"></div>
 </div></section>
 
 <section class="slide" id="servicos" data-t="Serviços"><div class="in">
@@ -271,6 +285,12 @@ function geo(){var c=row.children,step=c.length>1?c[1].offsetLeft-c[0].offsetLef
 function upd(){var q=geo(),end=row.scrollLeft>=row.scrollWidth-row.clientWidth-2,pg=end?q.pages:Math.floor(Math.round(row.scrollLeft/q.step)/q.per)+1;nav.hidden=q.pages<2;cnt.textContent=pg+" / "+q.pages}
 row.addEventListener("scroll",upd,{passive:true});addEventListener("resize",upd);upd()}
 renderGal(TRABALHOS);
+/* carrossel "Por que higienizar" (celular): pontinhos acompanham o card visível */
+(function(){var r=document.querySelector(".args"),d=document.getElementById("adots");if(!r||!d)return;var c=r.children;
+for(var k=0;k<c.length;k++)d.appendChild(document.createElement("span"));
+function u(){var w=c.length>1?c[1].offsetLeft-c[0].offsetLeft:1,n=r.scrollLeft>=r.scrollWidth-r.clientWidth-2?c.length-1:Math.round(r.scrollLeft/w);
+[].forEach.call(d.children,function(x,k){x.className=k===n?"on":""})}
+r.addEventListener("scroll",u,{passive:true});u()})();
 /* horário: aberto agora? (hora de Brasília) */
 var HOURS={1:[8,18],2:[8,18],3:[8,18],4:[8,18],5:[8,18],6:[8,12]};
 function isOpen(d){var p={};new Intl.DateTimeFormat("en-US",{timeZone:"America/Sao_Paulo",weekday:"short",hour:"numeric",minute:"numeric",hourCycle:"h23"}).formatToParts(d).forEach(function(x){p[x.type]=x.value});
@@ -284,10 +304,12 @@ menu=document.getElementById("menu"),dots=document.getElementById("dots"),pv=doc
 var T=S.map(function(x){return x.dataset.t});
 S.forEach(function(x,k){var b=document.createElement("button");b.textContent=T[k];b.onclick=function(){go(k)};menu.appendChild(b);
 var d=document.createElement("button");d.title=T[k];d.setAttribute("aria-label",T[k]);d.onclick=function(){go(k)};dots.appendChild(d)});
+var pg=document.createElement("span");pg.className="pg";dots.appendChild(pg);
+var hd=document.querySelector("header");function hh(){document.documentElement.style.setProperty("--hh",hd.offsetHeight+"px")}hh();addEventListener("resize",hh);
 function go(k){k=Math.max(0,Math.min(S.length-1,k));i=k;st.style.setProperty("--i",k);ui();
 if(!mq.matches)S[k].scrollIntoView({behavior:"smooth"});else history.replaceState(null,"","#"+S[k].id)}
 function ui(){S.forEach(function(x,k){x.classList.toggle("on",k===i)});
-[].forEach.call(menu.children,function(b,k){b.className=k===i?"on":""});[].forEach.call(dots.children,function(b,k){b.className=k===i?"on":""});
+[].forEach.call(menu.children,function(b,k){b.className=k===i?"on":""});[].forEach.call(dots.querySelectorAll("button"),function(b,k){b.className=k===i?"on":""});pg.textContent=(i+1)+"/"+S.length;
 var a=menu.children[i];if(a)menu.scrollLeft=a.offsetLeft-(menu.clientWidth-a.offsetWidth)/2;
 pv.hidden=i===0;nx.hidden=i===S.length-1;pv.title=T[i-1]||"";nx.title=T[i+1]||""}
 /* celular: menu acompanha a rolagem */
@@ -298,7 +320,7 @@ document.addEventListener("keydown",function(e){if(!mq.matches||/INPUT|SELECT|TE
 if(e.key==="ArrowRight"||e.key==="PageDown"||e.key===" ")go(i+1);else if(e.key==="ArrowLeft"||e.key==="PageUp")go(i-1);else if(e.key==="Home")go(0);else if(e.key==="End")go(S.length-1);else return;e.preventDefault()});
 window.addEventListener("wheel",function(e){if(!mq.matches)return;e.preventDefault();var d=Math.abs(e.deltaY)>Math.abs(e.deltaX)?e.deltaY:e.deltaX,n=Date.now();
 if(Math.abs(d)<20||n-lock<900)return;lock=n;go(i+(d>0?1:-1))},{passive:false});
-var x0=null;window.addEventListener("touchstart",function(e){x0=e.target.closest&&e.target.closest(".gal-row")?null:e.touches[0].clientX},{passive:true});
+var x0=null;window.addEventListener("touchstart",function(e){x0=e.target.closest&&e.target.closest(".gal-row,.args")?null:e.touches[0].clientX},{passive:true});
 window.addEventListener("touchend",function(e){if(!mq.matches||x0===null)return;var dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>60)go(i+(dx<0?1:-1))});
 document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a||a.getAttribute("href").length<2)return;
 var k=S.findIndex(function(x){return"#"+x.id===a.getAttribute("href")});if(k>-1&&mq.matches){e.preventDefault();go(k)}});
