@@ -80,7 +80,7 @@ textarea{min-height:4.5rem;resize:vertical}
 
   <section id="v-login" class="card center" hidden>
     <div class="ic">🦸</div><h1>Entrar no painel</h1>
-    <p class="sub">Use a conta Google autorizada para editar trabalhos, preços e a promoção do site.</p>
+    <p class="sub">Use a conta Google autorizada para editar trabalhos, preços e a promoção do site. Depois do primeiro acesso, este aparelho entra sozinho.</p>
     <div id="gbtn" style="display:flex;justify-content:center"></div>
     <p class="err" id="gerr" hidden>Não foi possível carregar o login do Google. Verifique a internet ou desative bloqueadores e recarregue a página.</p>
   </section>
@@ -174,6 +174,7 @@ const OUT_W = 1200, OUT_H = 800, JPEG_QUALITY = 0.85;
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const esc = t => String(t ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const REMEMBER_KEY = "shc-admin-device"; // só marca que já houve login neste aparelho; o token nunca é salvo
 let token = null, data = null, precosDirty = false;
 
 /* ---------- telas e avisos ---------- */
@@ -221,8 +222,8 @@ async function run(action, payload, { btn, ok, errEl, label } = {}) {
     if (ok) toast(ok);
     return true;
   } catch (e) {
-    if (e.code === "AUTH") { token = null; view("login"); toast(e.message, "err"); }
-    else if (e.code === "FORBIDDEN") { token = null; view("denied"); }
+    if (e.code === "AUTH") { token = null; view("login"); if (remembered()) { toast("Renovando o acesso…"); google.accounts.id.prompt(); } else toast(e.message, "err"); }
+    else if (e.code === "FORBIDDEN") { token = null; remember(false); view("denied"); }
     else if (errEl) showErr(errEl, e.message);
     else toast(e.message, "err");
     return false;
@@ -231,19 +232,23 @@ async function run(action, payload, { btn, ok, errEl, label } = {}) {
 
 /* ---------- login ---------- */
 function gisFailed() { $("#gerr").hidden = false; }
+function remembered() { try { return localStorage.getItem(REMEMBER_KEY) === "1"; } catch (e) { return false; } }
+function remember(on) { try { on ? localStorage.setItem(REMEMBER_KEY, "1") : localStorage.removeItem(REMEMBER_KEY); } catch (e) { /* navegador sem armazenamento: só não lembra o aparelho */ } }
 function initLogin() {
   if (!window.google || !google.accounts || !google.accounts.id) { setTimeout(initLogin, 300); return; }
-  google.accounts.id.initialize({ client_id: CFG.clientId, callback: onCredential, auto_select: false, cancel_on_tap_outside: true });
+  google.accounts.id.initialize({ client_id: CFG.clientId, callback: onCredential, auto_select: true, cancel_on_tap_outside: true, use_fedcm_for_prompt: true });
   google.accounts.id.renderButton($("#gbtn"), { theme: "filled_blue", size: "large", shape: "pill", text: "signin_with", locale: "pt-BR" });
+  if (remembered()) google.accounts.id.prompt(); // aparelho já usado: entra sozinho se a conta Google continuar conectada
 }
 async function onCredential(resp) {
   token = resp.credential;
   view("loading");
-  if (await run("getAdminData", {})) { $("#email").textContent = data.email; view("app"); }
+  if (await run("getAdminData", {})) { remember(true); $("#email").textContent = data.email; view("app"); }
 }
 function logout() {
   if (precosDirty && !confirm("Há preços não salvos. Sair mesmo assim?")) return;
   token = null; data = null; precosDirty = false;
+  remember(false);
   if (window.google && google.accounts && google.accounts.id) google.accounts.id.disableAutoSelect();
   view("login");
 }
