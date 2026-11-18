@@ -56,9 +56,9 @@ header .btn{padding:.55rem 1.1rem;font-size:.9rem}
 .offer div{flex:1}.offer h3{font-size:1.15rem}.offer h3 em{color:var(--ice);font-style:normal}.offer p{color:#d6e7ff;font-size:.88rem}
 .offer .btn{padding:.65rem 1.2rem;font-size:.9rem;flex:none}
 /* trabalhos (antes e depois) */
-.gal-row{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 2rem)/3);gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.gal-row::-webkit-scrollbar{display:none}
+.gal-row{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 2rem)/3);gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.gal-row::-webkit-scrollbar{display:none}.gal-row.few{grid-auto-columns:min(100%,32rem);justify-content:center}
 .ba{scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:1.2rem;padding:.6rem;box-shadow:0 .4rem 1.1rem rgba(21,101,216,.08)}
-.ba-img{position:relative;aspect-ratio:4/5;border-radius:.9rem;overflow:hidden;background:var(--sec)}
+.ba-img{position:relative;aspect-ratio:3/2;border-radius:.9rem;overflow:hidden;background:var(--sec)}
 .ba-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.ba-img .af{clip-path:inset(0 0 0 var(--p,50%))}
 .ba-line{position:absolute;top:0;bottom:0;left:var(--p,50%);width:3px;margin-left:-1.5px;background:#fff;pointer-events:none}
 .ba-knob{position:absolute;top:50%;left:var(--p,50%);transform:translate(-50%,-50%);width:2.6rem;height:2.6rem;border-radius:50%;background:#fff;color:var(--blue);display:grid;place-items:center;font:800 1rem var(--hf);box-shadow:0 .3rem .9rem rgba(11,42,107,.3);pointer-events:none}
@@ -131,7 +131,6 @@ header{position:relative;flex:none;flex-wrap:nowrap;height:4rem;padding-block:0}
 .dots{display:flex;position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);gap:.5rem;background:var(--navy);padding:.55rem .8rem;border-radius:999px;z-index:30}
 .dots button{width:.6rem;height:.6rem;border-radius:99px;border:0;background:#6d8fd0;padding:0;transition:.3s}.dots button.on{width:1.8rem;background:var(--sky)}
 .fab{right:1.2rem;width:3.2rem;height:3.2rem;font-size:1.6rem}
-.ba-img{aspect-ratio:auto;height:clamp(13rem,44vh,27rem)}
 }
 #fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}.view{position:relative;z-index:1}
 .mascot{position:relative;animation:fl 4s ease-in-out infinite}.mascot img{width:100%;display:block;filter:drop-shadow(0 .8rem 1.2rem rgba(11,42,107,.22))}.mascot svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
@@ -256,13 +255,14 @@ pl.innerHTML=D[k].map(function(r){return'<div class="price"><span>'+r[0]+'</span
 Object.keys(D).forEach(function(k){var b=document.createElement("button");b.className="tab";b.textContent=k;b.setAttribute("role","tab");b.onclick=function(){show(k)};tabs.appendChild(b)});show("Estofados");
 /* trabalhos: coloque as fotos em assets/trabalhos/ e adicione um item por trabalho. Lista vazia = aviso "em breve". */
 var TRABALHOS=[
-/* {item:"Sofá retrátil",local:"Canoas",problema:"Manchas e odor de pet",antes:"assets/trabalhos/sofa1-antes.webp",depois:"assets/trabalhos/sofa1-depois.webp"}, */
+{item:"Sofá 3 lugares",problema:"Manchas escuras e sujeira acumulada",antes:"assets/trabalhos/sofa-01-antes.webp",depois:"assets/trabalhos/sofa-01-depois.webp"}
+/* modelo: {item:"",local:"",problema:"",antes:"assets/trabalhos/x-antes.webp",depois:"assets/trabalhos/x-depois.webp"}, */
 ];
 var IG="https://www.instagram.com/super_heroclean";
 function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 function renderGal(list){var g=document.getElementById("gal");if(!g)return;
 if(!list.length){g.innerHTML='<div class="gal-empty"><div class="ic">📸</div><h3>Em breve, fotos de antes e depois</h3><p>Enquanto isso, veja trabalhos reais no nosso Instagram.</p><a class="btn ig" href="'+IG+'" target="_blank" rel="noopener">Ver no Instagram</a></div>';return}
-g.innerHTML='<div class="gal-row">'+list.map(function(t){var n=esc(t.item);return'<figure class="ba"><div class="ba-img"><img src="'+esc(t.antes)+'" alt="'+n+' antes da higienização" loading="lazy" decoding="async"><img class="af" src="'+esc(t.depois)+'" alt="'+n+' depois da higienização" loading="lazy" decoding="async"><span class="ba-line"></span><span class="ba-knob" aria-hidden="true">‹›</span><span class="ba-tag b">Antes</span><span class="ba-tag a">Depois</span><input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois: '+n+'"></div><figcaption><h3>'+n+'</h3><p>'+esc([t.local,t.problema].filter(Boolean).join(" · "))+'</p></figcaption></figure>'}).join("")+
+g.innerHTML='<div class="gal-row'+(list.length<3?' few':'')+'">'+list.map(function(t){var n=esc(t.item);return'<figure class="ba"><div class="ba-img"><img src="'+esc(t.antes)+'" alt="'+n+' antes da higienização" loading="lazy" decoding="async"><img class="af" src="'+esc(t.depois)+'" alt="'+n+' depois da higienização" loading="lazy" decoding="async"><span class="ba-line"></span><span class="ba-knob" aria-hidden="true">‹›</span><span class="ba-tag b">Antes</span><span class="ba-tag a">Depois</span><input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois: '+n+'"></div><figcaption><h3>'+n+'</h3><p>'+esc([t.local,t.problema].filter(Boolean).join(" · "))+'</p></figcaption></figure>'}).join("")+
 '</div><div class="gal-nav"><button class="gbtn" data-d="-1" aria-label="Trabalhos anteriores">‹</button><span id="gcount"></span><button class="gbtn" data-d="1" aria-label="Próximos trabalhos">›</button></div><p class="gal-hint">Arraste a foto para comparar</p><a class="gal-more" href="'+IG+'" target="_blank" rel="noopener">Ver mais no Instagram ›</a>';
 var row=g.querySelector(".gal-row"),cnt=document.getElementById("gcount"),nav=g.querySelector(".gal-nav");
 [].forEach.call(g.querySelectorAll(".ba input"),function(r){r.oninput=function(){r.parentNode.style.setProperty("--p",r.value+"%")}});
