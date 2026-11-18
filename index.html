@@ -34,13 +34,14 @@ header .btn{padding:.55rem 1.1rem;font-size:.9rem}
 .card .ic{font-size:2rem;margin-bottom:.4rem}.card h3{font-size:1.1rem;color:var(--blue);margin-bottom:.3rem}.card p{color:var(--muted);font-size:.95rem}
 .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:2.5rem;align-items:center}
 .tag{display:inline-block;background:var(--navy);color:#fff;border-radius:999px;padding:.4rem .9rem;font-size:.85rem;font-weight:600;margin-bottom:1rem}
-.hero h1{font-size:clamp(2rem,5vw,3.8rem);font-style:italic;font-weight:800;color:var(--ink);margin-bottom:1rem}.hero h1 em{color:var(--blue)}
-.hero p{color:var(--muted);font-size:1.1rem;margin-bottom:1.4rem;max-width:34rem}.cta{display:flex;gap:.8rem;flex-wrap:wrap}
+.hero h1{font-size:clamp(2rem,4.6vw,3.6rem);font-style:italic;font-weight:800;color:var(--blue);margin-bottom:1rem}
+.hero p{color:var(--muted);font-size:1.1rem;margin-bottom:1.4rem;max-width:34rem}
+.cta{display:flex;flex-direction:column;align-items:flex-start;gap:.45rem}.cta-note{font:800 italic 1rem var(--hf);color:var(--ink);padding-left:.4rem}
 .pills{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:1.3rem}.pills span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:.35rem .85rem;font-size:.85rem;font-weight:600}
-.logo{background:#fff;border-radius:1.8rem;padding:.8rem;box-shadow:0 1.2rem 3rem rgba(11,42,107,.25);width:min(24rem,100%);margin:0 auto}
+.logo{width:min(24rem,100%);margin:0 auto}
 /* por que higienizar (página própria, antes dos serviços) */
 .eyebrow{display:inline-block;background:var(--blue);color:#fff;border-radius:999px;padding:.3rem .85rem;font:800 italic .85rem var(--hf);margin-bottom:.6rem}
-.hook{font-size:clamp(1.7rem,3.6vw,2.8rem);font-style:italic;font-weight:800;color:var(--ink);margin-bottom:.4rem;max-width:52rem}.hook em{color:var(--blue)}
+.hook{font-size:clamp(1.7rem,3.6vw,2.8rem);font-style:italic;font-weight:800;color:var(--blue);margin-bottom:.4rem;max-width:52rem}
 .arg{display:flex;flex-direction:column;border-top:5px solid var(--blue)}
 .arg .k{font:800 .72rem var(--bf);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 .arg .st{font:800 italic 1.9rem/1 var(--hf);color:var(--blue);margin:.35rem 0 .15rem}.arg .st small{display:block;font:600 .85rem var(--bf);color:var(--muted);margin-top:.25rem}
@@ -48,27 +49,36 @@ header .btn{padding:.55rem 1.1rem;font-size:.9rem}
 .arg.hl{background:linear-gradient(150deg,var(--navy),var(--blue));color:#fff;border:0}.arg.hl .k,.arg.hl .st small{color:#cfe2ff}.arg.hl .st{color:var(--gold)}.arg.hl h3{color:#fff}.arg.hl p{color:#e3efff}
 .chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:auto;padding-top:.7rem}.chips span{background:var(--sec);border:1px solid var(--line);border-radius:999px;padding:.2rem .65rem;font-size:.78rem;font-weight:600}
 .arg.hl .chips span{background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.35)}
-.rule{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;background:var(--card);border:2px dashed var(--blue);border-radius:1.2rem;padding:.8rem 1rem;margin-top:1rem}
-.rule .ic{font-size:2rem}.rule .tx{flex:1;min-width:14rem}.rule h3{font-size:1.1rem;color:var(--ink)}.rule p{color:var(--muted);font-size:.9rem}
-.rule .btn{padding:.7rem 1.3rem;font-size:.95rem}.rule .more{font:700 .9rem var(--hf);color:var(--blue)}
 /* oferta (dentro de Serviços) */
 .offer{display:flex;align-items:center;gap:1rem;background:var(--navy);color:#fff;border-radius:1.2rem;padding:.8rem 1rem .8rem .8rem;margin-top:1.1rem}
 .offer img{width:5rem;height:5rem;object-fit:cover;border-radius:.8rem;flex:none;background:#0e3a8a}
 .offer div{flex:1}.offer h3{font-size:1.15rem}.offer h3 em{color:var(--gold);font-style:normal}.offer p{color:#d6e7ff;font-size:.88rem}
 .offer .btn{padding:.65rem 1.2rem;font-size:.9rem;flex:none}
+/* trabalhos (antes e depois) */
+.gal-row{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 2rem)/3);gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.gal-row::-webkit-scrollbar{display:none}
+.ba{scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:1.2rem;padding:.6rem;box-shadow:0 .4rem 1.1rem rgba(21,101,216,.08)}
+.ba-img{position:relative;aspect-ratio:4/5;border-radius:.9rem;overflow:hidden;background:var(--sec)}
+.ba-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.ba-img .af{clip-path:inset(0 0 0 var(--p,50%))}
+.ba-line{position:absolute;top:0;bottom:0;left:var(--p,50%);width:3px;margin-left:-1.5px;background:#fff;pointer-events:none}
+.ba-knob{position:absolute;top:50%;left:var(--p,50%);transform:translate(-50%,-50%);width:2.6rem;height:2.6rem;border-radius:50%;background:#fff;color:var(--blue);display:grid;place-items:center;font:800 1rem var(--hf);box-shadow:0 .3rem .9rem rgba(11,42,107,.3);pointer-events:none}
+.ba-img:has(input:focus-visible) .ba-knob{outline:3px solid var(--gold)}
+.ba-tag{position:absolute;bottom:.6rem;font:700 .75rem var(--bf);padding:.2rem .6rem;border-radius:.5rem;color:#fff;pointer-events:none}.ba-tag.b{left:.6rem;background:rgba(20,33,61,.8)}.ba-tag.a{right:.6rem;background:var(--blue)}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;margin:0;cursor:ew-resize;touch-action:pan-y}
+.ba h3{font-size:1rem;color:var(--blue);margin:.6rem .3rem 0}.ba p{color:var(--muted);font-size:.85rem;margin:0 .3rem .2rem}
+.gal-nav{display:flex;align-items:center;justify-content:center;gap:.8rem;margin-top:.9rem;font-size:.85rem;color:var(--muted)}
+.gbtn{width:2.4rem;height:2.4rem;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--blue);font-size:1.3rem;line-height:1}
+.gal-empty{display:flex;flex-direction:column;align-items:center;text-align:center;gap:.6rem;background:var(--card);border:2px dashed var(--line);border-radius:1.4rem;padding:2.5rem 1.5rem;max-width:40rem;margin:0 auto}
+.gal-empty .ic{font-size:2.8rem}.gal-empty h3{font-size:1.25rem;color:var(--blue)}.gal-empty p{color:var(--muted);max-width:28rem}
+.gal-nav[hidden]{display:none}.gal-hint{text-align:center;font-size:.8rem;color:var(--muted);margin-top:.5rem}
+.gal-more{display:block;text-align:center;margin-top:.8rem;font:700 .95rem var(--hf);color:var(--blue)}
 /* preços */
-.two{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(4,auto);gap:0 2rem;align-items:start}
-.two>div{display:grid;grid-row:span 4;grid-template-rows:subgrid;align-content:start}
-.two .sub{margin-bottom:1rem}.tabs{margin-bottom:.8rem}.fld{margin-bottom:.8rem}.fld select{height:2.9rem;padding:0 .8rem}.res{margin-top:0}
-.two .res{align-self:start;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.prices{max-width:46rem!important}
 .tabs{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.8rem;background:var(--sec);padding:.3rem;border-radius:999px;width:fit-content;border:1px solid var(--line)}
 .tab{padding:.5rem .95rem;border-radius:999px;border:0;background:transparent;color:var(--blue);font:700 .88rem var(--hf)}.tab[aria-selected="true"]{background:var(--blue);color:#fff}
 .plist{background:var(--card);border:1px solid var(--line);border-radius:1.2rem;overflow:hidden}
 .price{display:flex;justify-content:space-between;gap:.8rem;padding:.8rem 1.1rem;border-bottom:1px solid var(--line);font-size:.95rem}.price:last-child{border:0}.price b{color:var(--blue);white-space:nowrap}
 .note{font-size:.8rem;color:var(--muted);margin-top:.6rem}
-label{font-weight:600;font-size:.9rem;display:block;margin:.6rem 0 .25rem}
-select,input{width:100%;padding:.7rem;border-radius:.8rem;border:2px solid var(--line);background:var(--card);color:var(--text);font:inherit}
-.res{background:var(--navy);color:#fff;border-radius:1.2rem;padding:1.2rem;text-align:center}.res strong{display:block;font:800 1.6rem var(--hf);color:var(--sky);margin:.2rem 0 .7rem}
+.plink{display:inline-flex;align-items:center;gap:.4rem;margin-top:.8rem;font:700 .95rem var(--hf);color:var(--blue);text-decoration:underline;text-underline-offset:3px}.plink:hover{color:var(--ink)}
 /* como funciona */
 .step{position:relative;padding-top:2.2rem}.step:before{content:attr(data-n);position:absolute;top:-1rem;left:1.2rem;width:2.4rem;height:2.4rem;border-radius:50%;background:var(--blue);color:#fff;font:800 1.2rem var(--hf);display:grid;place-items:center}
 .area{margin-top:1.1rem;font-size:.92rem;color:var(--muted)}.area b{color:var(--blue)}
@@ -78,6 +88,7 @@ summary{font-weight:600;cursor:pointer;list-style:none;display:flex;justify-cont
 summary:after{content:"+";color:var(--blue);font:800 1.2rem/1 var(--hf)}details[open] summary:after{content:"–"}
 details p{color:var(--muted);font-size:.9rem;margin-top:.45rem}
 /* contato */
+.hours{display:flex;flex-direction:column;align-items:center;gap:.35rem;margin-top:1rem}.hours p{font-weight:600}.ost{font:700 .8rem var(--bf);border-radius:999px;padding:.25rem .75rem;background:var(--sec);border:1px solid var(--line);color:var(--muted)}.ost.open{background:#dcfce7;border-color:#86efac;color:#166534}
 .final{text-align:center}.final .sub{margin:0 auto 1.3rem}.final .btn{font-size:1.15rem;padding:1rem 2rem}
 .igb{background:linear-gradient(120deg,var(--navy),var(--blue));color:#fff;border-radius:1.5rem;padding:1.2rem 1.6rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:1.5rem;text-align:left}
 .igb .l{display:flex;align-items:center;gap:1rem}.igb .ico{width:3.2rem;height:3.2rem;border-radius:1rem;display:grid;place-items:center;flex:none}
@@ -89,14 +100,16 @@ details p{color:var(--muted);font-size:.9rem;margin-top:.45rem}
 @media(max-width:760px){
 header{padding:.55rem 1rem}header .hi{display:none}.menu{order:3;width:100%}
 .slide{padding:1.9rem 0}h2{margin-bottom:.25rem}.sub{margin-bottom:1rem;font-size:.93rem}
-.hero,.two{grid-template-columns:1fr;gap:1.2rem}.two>div{display:block;grid-row:auto}.res{margin-top:1rem}.logo{width:8.5rem;padding:.4rem;border-radius:1.2rem;order:-1;margin:0}
+.hero{grid-template-columns:8.5rem 1fr;grid-template-areas:"logo cta" "tag tag" "h1 h1" "p p" "pills pills";gap:0 1rem;align-items:center}.hero>div:first-child{display:contents}
+.logo{grid-area:logo;width:8.5rem;margin:0 0 1rem}.cta{grid-area:cta;margin-bottom:1rem;align-items:stretch}.tag{grid-area:tag;justify-self:start}.hero h1{grid-area:h1}.hero p{grid-area:p}.pills{grid-area:pills}.cta-note{text-align:center;padding:0}
 .tag{margin-bottom:.7rem;font-size:.8rem}.hero h1{margin-bottom:.7rem}.hero p{font-size:1rem;margin-bottom:1rem}
-.cta .btn{flex:1;padding:.8rem 1rem}.pills{margin-top:1rem;gap:.4rem}.pills span{font-size:.78rem;padding:.3rem .7rem}
+.cta .btn{padding:.8rem 1rem}.pills{margin-top:1rem;gap:.4rem}.pills span{font-size:.78rem;padding:.3rem .7rem}
 .g{gap:.6rem}.g4{grid-template-columns:1fr 1fr}.g3,.g2{grid-template-columns:1fr}
 .card{padding:.9rem;border-radius:1rem}.card .ic{font-size:1.6rem;margin-bottom:.2rem}.card h3{font-size:1rem}.card p{font-size:.82rem;line-height:1.4}
-.hook{font-size:1.55rem}.arg .st{font-size:1.6rem}.arg p{font-size:.86rem}.chips span{font-size:.74rem}.rule{text-align:center;justify-content:center}.rule .btn{width:100%}
+.hook{font-size:1.55rem}.arg .st{font-size:1.6rem}.arg p{font-size:.86rem}.chips span{font-size:.74rem}
 .offer{flex-wrap:wrap}.offer img{width:4rem;height:4rem}.offer .btn{width:100%}
 .step{padding:.85rem .9rem .85rem 3.5rem}.step:before{top:50%;left:.8rem;transform:translateY(-50%);width:2.1rem;height:2.1rem;font-size:1rem}.step h3{margin-bottom:.1rem}
+.gal-row{grid-auto-columns:100%}.gal-empty{padding:1.8rem 1.1rem}
 .final .btn{width:100%}.igb{padding:1rem;margin-top:1.1rem}.igb .btn{width:100%}
 .fab{width:3.3rem;height:3.3rem;font-size:1.6rem}
 }
@@ -117,9 +130,10 @@ header{position:relative;flex:none;flex-wrap:nowrap;height:4rem;padding-block:0}
 .dots{display:flex;position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);gap:.5rem;background:var(--navy);padding:.55rem .8rem;border-radius:999px;z-index:30}
 .dots button{width:.6rem;height:.6rem;border-radius:99px;border:0;background:#6d8fd0;padding:0;transition:.3s}.dots button.on{width:1.8rem;background:var(--sky)}
 .fab{right:1.2rem;width:3.2rem;height:3.2rem;font-size:1.6rem}
+.ba-img{aspect-ratio:auto;height:clamp(13rem,44vh,27rem)}
 }
 #fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}.view{position:relative;z-index:1}
-.mascot{position:relative;animation:fl 4s ease-in-out infinite}.mascot img{width:100%;display:block;border-radius:1.2rem}.mascot svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.mascot{position:relative;animation:fl 4s ease-in-out infinite}.mascot img{width:100%;display:block;filter:drop-shadow(0 .8rem 1.2rem rgba(11,42,107,.22))}.mascot svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .mascot svg *{transform-box:fill-box}
 .wink{opacity:0;animation:wk 4.5s linear infinite}
 @keyframes hop{30%{transform:translateY(-1rem) rotate(-4deg)}60%{transform:translateY(0) rotate(2deg)}}
@@ -139,11 +153,11 @@ header{position:relative;flex:none;flex-wrap:nowrap;height:4rem;padding-block:0}
 
 <section class="slide" id="inicio" data-t="Início"><div class="in hero">
 <div><span class="tag">📍 Porto Alegre e região metropolitana</span>
-<h1>Seu estofado, carpete e carro <em>limpos como novos.</em></h1>
+<h1>Super Hero Clean – O poder da limpeza está em nossas mãos!</h1>
 <p>Higienização profissional que elimina ácaros, manchas e odores, sem você sair de casa.</p>
-<div class="cta"><a class="btn wa" href="#" data-wa="Olá! Quero um orçamento de higienização.">💬 Orçamento grátis</a><button class="btn ghost" data-go="precos">Ver preços ›</button></div>
+<div class="cta"><button class="btn wa" data-go="precos">Ver preços ›</button><span class="cta-note">Orçamento grátis!</span></div>
 <div class="pills"><span>✅ Equipe treinada</span><span>🌿 Produtos seguros</span><span>⚡ Resposta rápida</span><span>🏠 A domicílio</span></div></div>
-<div class="logo"><div class="mascot"><img src="assets/logo.jpg" alt="Mascote e logo Super Hero Clean">
+<div class="logo"><div class="mascot"><img src="assets/logo.png" alt="Mascote e logo Super Hero Clean">
 <svg viewBox="0 0 990 1081" aria-hidden="true">
 <defs><linearGradient id="sk" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d5d5d6"/><stop offset="1" stop-color="#f1f3f3"/></linearGradient>
 <filter id="bl"><feGaussianBlur stdDeviation="1.6"/></filter></defs>
@@ -153,7 +167,7 @@ header{position:relative;flex:none;flex-wrap:nowrap;height:4rem;padding-block:0}
 
 <section class="slide" id="porque" data-t="Por que higienizar"><div class="in">
 <span class="eyebrow">Por que higienizar?</span>
-<h2 class="hook">Você divide o sofá com <em>milhões de hóspedes invisíveis.</em></h2>
+<h2 class="hook">Você divide o sofá com milhões de hóspedes invisíveis.</h2>
 <p class="sub">Não é só deixar com cara de limpo. É tirar o que você não vê, mas respira, sente no cheiro e paga no bolso.</p>
 <div class="g g3">
 <div class="card arg hl"><span class="k">🫁 Saúde</span><div class="st">Milhões de ácaros<small>podem viver em um único sofá</small></div>
@@ -166,8 +180,6 @@ header{position:relative;flex:none;flex-wrap:nowrap;height:4rem;padding-block:0}
 <h3>Poeira age como lixa</h3><p>A cada vez que alguém senta, grãos de poeira e areia raspam as fibras por dentro. Higienizar protege o que você pagou.</p>
 <div class="chips"><span>✨ Aspecto de novo</span><span>🎯 Remove manchas</span><span>🪶 Devolve a maciez</span><span>🚗 Carro vale mais</span></div></div>
 </div>
-<div class="rule"><div class="ic">🗓️</div><div class="tx"><h3>A regra dos 6 meses</h3><p>Higienize os estofados a cada 6 meses, ou a cada 3 se tiver pets ou alérgicos em casa.</p></div>
-<a class="btn wa" href="#" data-wa="Olá! Vi no site a regra dos 6 meses e quero agendar minha higienização.">💬 Agendar minha higienização</a><a class="more" href="#servicos">Veja o que limpamos ›</a></div>
 </div></section>
 
 <section class="slide" id="servicos" data-t="Serviços"><div class="in">
@@ -183,14 +195,16 @@ header{position:relative;flex:none;flex-wrap:nowrap;height:4rem;padding-block:0}
 <a class="btn wa" href="#" data-wa="Olá! Quero higienizar meu carpete (promoção R$ 12/m²).">💬 Quero a oferta</a></div>
 </div></section>
 
-<section class="slide" id="precos" data-t="Preços"><div class="in two">
-<div><h2>Tabela de preços</h2><p class="sub">Valores de referência por serviço.</p>
-<div class="tabs" role="tablist" id="tabs"></div><div><div class="plist" id="plist"></div>
-<p class="note">ℹ️ O valor final depende do tamanho, da sujeira e de adicionais.</p></div></div>
-<div><h2>Simule seu orçamento</h2><p class="sub">Escolha o serviço e veja a faixa de valor.</p>
-<div class="fld"><select id="svc" aria-label="Serviço"></select>
-<div id="qbox" hidden><label for="qty">Metragem (m²)</label><input id="qty" type="number" min="1" value="6" inputmode="numeric"></div></div>
-<div class="res"><span>Estimativa</span><strong id="out">—</strong><a class="btn wa" id="calcwa" href="#">💬 Confirmar no WhatsApp</a></div></div>
+<section class="slide" id="trabalhos" data-t="Trabalhos"><div class="in">
+<h2>Trabalhos realizados</h2><p class="sub">Antes e depois de verdade, direto dos nossos atendimentos.</p>
+<div id="gal"></div>
+</div></section>
+
+<section class="slide" id="precos" data-t="Preços"><div class="in prices">
+<h2>Tabela de preços</h2><p class="sub">Valores de referência por serviço.</p>
+<div class="tabs" role="tablist" id="tabs"></div><div class="plist" id="plist"></div>
+<p class="note">ℹ️ O valor final depende do tamanho, da sujeira e dos adicionais.</p>
+<a class="plink" href="#" data-wa="Olá! Vi a tabela de preços no site e quero confirmar valores e promoções.">💬 Confirme valores e promoções via WhatsApp ›</a>
 </div></section>
 
 <section class="slide" id="processo" data-t="Como funciona"><div class="in">
@@ -200,7 +214,7 @@ header{position:relative;flex:none;flex-wrap:nowrap;height:4rem;padding-block:0}
 <div class="card step" data-n="2"><h3>Receba o orçamento</h3><p>Valor claro, sem surpresas.</p></div>
 <div class="card step" data-n="3"><h3>Agende e relaxe</h3><p>Vamos até você e entregamos tudo limpo.</p></div>
 </div>
-<p class="area"><b>📍 Atendemos:</b> Porto Alegre e região metropolitana.</p>
+<p class="area"><b>📍 Atendemos:</b> Porto Alegre e região metropolitana · <b>🕗 Horário:</b> seg a sex, 8h às 18h · sáb, 8h às 12h</p>
 <div class="faq"><h3>Dúvidas frequentes</h3><div class="g g2">
 <details><summary>Quanto tempo leva para secar?</summary><p>Depende do tecido e do clima. Em geral, o estofado fica pronto para uso em poucas horas.</p></details>
 <details><summary>É seguro para crianças e pets?</summary><p>Sim. Usamos produtos de qualidade e seguros, aplicados por equipe treinada.</p></details>
@@ -212,6 +226,7 @@ header{position:relative;flex:none;flex-wrap:nowrap;height:4rem;padding-block:0}
 <section class="slide final" id="contato" data-t="Contato"><div class="in">
 <h2>Pronto para deixar tudo como novo?</h2><p class="sub">Peça seu orçamento agora. Resposta rápida pelo WhatsApp.</p>
 <a class="btn wa" href="#" data-wa="Olá! Quero agendar uma higienização.">💬 51 99511-0839</a>
+<div class="hours"><p>🕗 Segunda a sexta, 8h às 18h · Sábado, 8h às 12h</p><span class="ost" id="ost" hidden></span></div>
 <div class="igb"><div class="l"><div class="ico ig"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></div><div><h3>Siga no Instagram</h3><p>Antes e depois, trabalhos reais e promoções.</p></div></div>
 <a class="btn ig" href="https://www.instagram.com/super_heroclean" target="_blank" rel="noopener">@super_heroclean</a></div>
 <p class="foot">© Super Hero Clean · Higienização profissional · Porto Alegre e região</p>
@@ -238,12 +253,29 @@ var tabs=document.getElementById("tabs"),pl=document.getElementById("plist");
 function show(k){Array.from(tabs.children).forEach(function(b){b.setAttribute("aria-selected",b.textContent===k)});
 pl.innerHTML=D[k].map(function(r){return'<div class="price"><span>'+r[0]+'</span><b>'+f(r[1])+" a "+f(r[2])+(k==="Carpetes"?" / m²":"")+"</b></div>"}).join("")}
 Object.keys(D).forEach(function(k){var b=document.createElement("button");b.className="tab";b.textContent=k;b.setAttribute("role","tab");b.onclick=function(){show(k)};tabs.appendChild(b)});show("Estofados");
-var s=document.getElementById("svc"),q=document.getElementById("qty"),o=document.getElementById("out"),qb=document.getElementById("qbox"),cw=document.getElementById("calcwa"),L=[];
-Object.keys(D).forEach(function(k){D[k].forEach(function(r){L.push(r);s.add(new Option(k+": "+r[0],L.length-1))})});
-function calc(){var r=L[s.value],c=r[0].indexOf("m²")>-1,m=c?Math.max(1,+q.value||1):1;qb.hidden=!c;
-o.textContent=f(r[1]*m)+" a "+f(r[2]*m);
-cw.href=wa("Olá! Simulei no site: "+r[0]+(c?" ("+m+" m²)":"")+" — "+o.textContent+". Podem confirmar o orçamento?")}
-s.onchange=q.oninput=calc;calc();
+/* trabalhos: coloque as fotos em assets/trabalhos/ e adicione um item por trabalho. Lista vazia = aviso "em breve". */
+var TRABALHOS=[
+/* {item:"Sofá retrátil",local:"Canoas",problema:"Manchas e odor de pet",antes:"assets/trabalhos/sofa1-antes.webp",depois:"assets/trabalhos/sofa1-depois.webp"}, */
+];
+var IG="https://www.instagram.com/super_heroclean";
+function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function renderGal(list){var g=document.getElementById("gal");if(!g)return;
+if(!list.length){g.innerHTML='<div class="gal-empty"><div class="ic">📸</div><h3>Em breve, fotos de antes e depois</h3><p>Enquanto isso, veja trabalhos reais no nosso Instagram.</p><a class="btn ig" href="'+IG+'" target="_blank" rel="noopener">Ver no Instagram</a></div>';return}
+g.innerHTML='<div class="gal-row">'+list.map(function(t){var n=esc(t.item);return'<figure class="ba"><div class="ba-img"><img src="'+esc(t.antes)+'" alt="'+n+' antes da higienização" loading="lazy" decoding="async"><img class="af" src="'+esc(t.depois)+'" alt="'+n+' depois da higienização" loading="lazy" decoding="async"><span class="ba-line"></span><span class="ba-knob" aria-hidden="true">‹›</span><span class="ba-tag b">Antes</span><span class="ba-tag a">Depois</span><input type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois: '+n+'"></div><figcaption><h3>'+n+'</h3><p>'+esc([t.local,t.problema].filter(Boolean).join(" · "))+'</p></figcaption></figure>'}).join("")+
+'</div><div class="gal-nav"><button class="gbtn" data-d="-1" aria-label="Trabalhos anteriores">‹</button><span id="gcount"></span><button class="gbtn" data-d="1" aria-label="Próximos trabalhos">›</button></div><p class="gal-hint">Arraste a foto para comparar</p><a class="gal-more" href="'+IG+'" target="_blank" rel="noopener">Ver mais no Instagram ›</a>';
+var row=g.querySelector(".gal-row"),cnt=document.getElementById("gcount"),nav=g.querySelector(".gal-nav");
+[].forEach.call(g.querySelectorAll(".ba input"),function(r){r.oninput=function(){r.parentNode.style.setProperty("--p",r.value+"%")}});
+function geo(){var c=row.children,step=c.length>1?c[1].offsetLeft-c[0].offsetLeft:(c[0].offsetWidth||1),per=Math.max(1,Math.round((row.clientWidth+step-c[0].offsetWidth)/step));return{step:step,per:per,pages:Math.ceil(c.length/per)}}
+[].forEach.call(g.querySelectorAll(".gbtn"),function(b){b.onclick=function(){var q=geo();row.scrollBy({left:+b.dataset.d*q.per*q.step,behavior:"smooth"})}});
+function upd(){var q=geo(),end=row.scrollLeft>=row.scrollWidth-row.clientWidth-2,pg=end?q.pages:Math.floor(Math.round(row.scrollLeft/q.step)/q.per)+1;nav.hidden=q.pages<2;cnt.textContent=pg+" / "+q.pages}
+row.addEventListener("scroll",upd,{passive:true});addEventListener("resize",upd);upd()}
+renderGal(TRABALHOS);
+/* horário: aberto agora? (hora de Brasília) */
+var HOURS={1:[8,18],2:[8,18],3:[8,18],4:[8,18],5:[8,18],6:[8,12]};
+function isOpen(d){var p={};new Intl.DateTimeFormat("en-US",{timeZone:"America/Sao_Paulo",weekday:"short",hour:"numeric",minute:"numeric",hourCycle:"h23"}).formatToParts(d).forEach(function(x){p[x.type]=x.value});
+var h=HOURS[["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(p.weekday)],t=+p.hour+(+p.minute)/60;return!!h&&t>=h[0]&&t<h[1]}
+(function(){var e=document.getElementById("ost");if(!e||!window.Intl)return;var o=isOpen(new Date());
+e.textContent=o?"🟢 Aberto agora":"Fechado agora · deixe sua mensagem que respondemos no próximo horário";e.className="ost"+(o?" open":"");e.hidden=false})();
 /* navegação */
 (function(){
 var mq=matchMedia("(min-width:900px) and (min-height:560px)"),st=document.getElementById("stage"),S=[].slice.call(st.children),
@@ -265,7 +297,7 @@ document.addEventListener("keydown",function(e){if(!mq.matches||/INPUT|SELECT|TE
 if(e.key==="ArrowRight"||e.key==="PageDown"||e.key===" ")go(i+1);else if(e.key==="ArrowLeft"||e.key==="PageUp")go(i-1);else if(e.key==="Home")go(0);else if(e.key==="End")go(S.length-1);else return;e.preventDefault()});
 window.addEventListener("wheel",function(e){if(!mq.matches)return;e.preventDefault();var d=Math.abs(e.deltaY)>Math.abs(e.deltaX)?e.deltaY:e.deltaX,n=Date.now();
 if(Math.abs(d)<20||n-lock<900)return;lock=n;go(i+(d>0?1:-1))},{passive:false});
-var x0=null;window.addEventListener("touchstart",function(e){x0=e.touches[0].clientX},{passive:true});
+var x0=null;window.addEventListener("touchstart",function(e){x0=e.target.closest&&e.target.closest(".gal-row")?null:e.touches[0].clientX},{passive:true});
 window.addEventListener("touchend",function(e){if(!mq.matches||x0===null)return;var dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>60)go(i+(dx<0?1:-1))});
 document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a||a.getAttribute("href").length<2)return;
 var k=S.findIndex(function(x){return"#"+x.id===a.getAttribute("href")});if(k>-1&&mq.matches){e.preventDefault();go(k)}});
@@ -273,12 +305,13 @@ mq.onchange=function(){st.style.setProperty("--i",i);ui()};
 var h=location.hash.slice(1),k0=S.findIndex(function(x){return x.id===h});if(k0>0){i=k0;st.style.setProperty("--i",k0)}ui();
 })();
 
-/* brilhos discretos + easter egg: toque no mascote solta bolhas */
+/* bolhas leves de fundo + easter egg: toque no mascote solta bolhas */
 (function(){var c=document.getElementById("fx"),x=c.getContext("2d"),W,H,B=[],S=[],rm=matchMedia("(prefers-reduced-motion:reduce)").matches,run=0;
 function R(a,b){return a+Math.random()*(b-a)}
 function init(){var d=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;c.width=W*d;c.height=H*d;x.setTransform(d,0,0,d,0,0);
-B=[];/* sem bolhas de fundo (pedido do cliente); só o easter egg do mascote */
+B=[];for(var j=0;j<(W<700?3:5);j++)B.push(amb(0));
 S=[];for(var i=0;i<3;i++)S.push({x:R(0,W),y:R(0,H*.8),s:R(6,11),ph:R(0,6.28),sp:R(.0004,.0008)})}
+function amb(fb){var r=R(4,11);return{x:R(0,W),y:fb?H+r+R(0,200):R(0,H),r:r,vx:0,vy:-R(.12,.3),ph:R(0,6.28),a:.42,pop:-1,pp:0,amb:1}}
 function bub(b){var r=b.r,a=b.a,g=x.createRadialGradient(b.x-r*.35,b.y-r*.35,r*.05,b.x,b.y,r);
 g.addColorStop(0,"rgba(255,255,255,"+(.95*a)+")");g.addColorStop(.4,"rgba(190,225,255,"+(.3*a)+")");g.addColorStop(1,"rgba(70,150,255,"+(.2*a)+")");
 x.beginPath();x.arc(b.x,b.y,r,0,6.283);x.fillStyle=g;x.fill();x.lineWidth=1;x.strokeStyle="rgba(21,101,216,"+(.28*a)+")";x.stroke();
@@ -289,9 +322,9 @@ function frame(t){x.clearRect(0,0,W,H);
 for(var i=B.length-1;i>=0;i--){var b=B[i];
 if(b.pp>0){b.pp+=.05;var p=b.pp,a=1-p;x.lineWidth=1.5;x.strokeStyle="rgba(56,182,255,"+a*.8+")";x.beginPath();x.arc(b.x,b.y,b.r*(1+p*.9),0,6.283);x.stroke();
 for(var k=0;k<6;k++){var an=k*1.05,d=b.r*(1+p*1.6);x.fillStyle="rgba(255,255,255,"+a+")";x.beginPath();x.arc(b.x+Math.cos(an)*d,b.y+Math.sin(an)*d,1.8,0,6.283);x.fill()}
-if(p>=1)B.splice(i,1);continue}
+if(p>=1){if(b.amb)B[i]=amb(1);else B.splice(i,1)}continue}
 b.vx*=.98;b.x+=b.vx+Math.sin(t*.0009+b.ph)*.3;b.y+=b.vy;
-if(b.pop>0&&b.y<b.pop)b.pp=.01;else if(b.y<-b.r*2){B.splice(i,1);continue}bub(b)}
+if(b.pop>0&&b.y<b.pop)b.pp=.01;else if(b.y<-b.r*2){if(b.amb)B[i]=amb(1);else B.splice(i,1);continue}bub(b)}
 S.forEach(function(s){var a=.6*Math.pow(Math.max(0,Math.sin(t*s.sp+s.ph)),6);if(a>.02)star(s.x,s.y,s.s*(.6+a),a)});
 if(run&&!rm)requestAnimationFrame(frame)}
 function go(){if(!run){run=1;requestAnimationFrame(frame)}}
