@@ -13,7 +13,7 @@ body{font-family:var(--bf);color:var(--text);background:var(--bg);line-height:1.
 button,input,select,textarea{font:inherit;color:inherit}
 button{cursor:pointer}
 header{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.7rem 1rem}
-header b{font:italic 800 1rem var(--hf);white-space:nowrap}header b span{color:var(--sky)}
+header b{font:italic 800 1rem var(--hf);white-space:nowrap}header .site{color:#cfe0ff;font-size:.8rem;font-weight:600;text-decoration:none;margin-right:auto;white-space:nowrap}header .site:hover{color:#fff}header b span{color:var(--sky)}
 .who{display:flex;align-items:center;gap:.6rem;font-size:.8rem;color:#cfe0ff;min-width:0}.who span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .wrap{width:min(48rem,100% - 1.5rem);margin:1rem auto 6rem}
 h1{font:italic 800 1.5rem var(--hf);color:var(--blue);margin-bottom:.3rem}
@@ -70,7 +70,7 @@ textarea{min-height:4.5rem;resize:vertical}
 </style>
 </head>
 <body>
-<header><b>SUPER <span>HERO</span> CLEAN · Painel</b><div class="who" id="who" hidden><span id="email"></span><button class="btn sec sm" id="logout" type="button">Sair</button></div></header>
+<header><b>SUPER <span>HERO</span> CLEAN · Painel</b><a class="site" href="../" target="_blank" rel="noopener">Ver site ↗</a><div class="who" id="who" hidden><span id="email"></span><button class="btn sec sm" id="logout" type="button">Sair</button></div></header>
 
 <main class="wrap">
   <section id="v-config" class="card center" hidden>
