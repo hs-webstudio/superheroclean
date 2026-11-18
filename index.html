@@ -259,12 +259,7 @@ header{position:relative;flex:none;flex-wrap:nowrap;height:4rem;padding-block:0}
 var N="5551995110839";
 function wa(t){return"https://wa.me/"+N+"?text="+encodeURIComponent(t)}
 document.querySelectorAll("[data-wa]").forEach(function(a){a.href=wa(a.dataset.wa);a.target="_blank";a.rel="noopener"});
-/* preços (conteúdo local, usado enquanto a API não estiver configurada) */
-var D={"Estofados":[["Sofá 2 a 3 lugares",150,300],["Sofá retrátil / reclinável",250,500],["Sofá de canto / em L",450,800],["Poltrona ou cadeira estofada",80,200]],
-"Veículos":[["Higienização interna completa",290,450],["Parcial (apenas bancos)",80,150],["Bancos de couro (limpeza + hidratação)",100,180],["Teto",100,250]],
-"Colchões":[["Solteiro",70,110],["Casal padrão",130,230],["Queen / King size",140,350]],
-"Carpetes":[["Carpete",12,45]]};
-var LOCAL_PRECOS=[];Object.keys(D).forEach(function(k){D[k].forEach(function(r){LOCAL_PRECOS.push({categoria:k,servico:r[0],min:r[1],max:r[2],unidade:k==="Carpetes"?"m²":""})})});
+/* preços */
 var f=function(n){return"R$ "+Number(n).toLocaleString("pt-BR",{minimumFractionDigits:2})};
 var tabs=document.getElementById("tabs"),pl=document.getElementById("plist");
 function renderPrecos(rows){tabs.innerHTML="";
@@ -278,11 +273,6 @@ tabs.hidden=false;show(order[0])}
 function renderPromo(p){var box=document.getElementById("promo");if(!box)return;if(!p||!p.ativo){box.hidden=true;return}
 var h=document.getElementById("promoTitle");h.textContent="🔥 "+p.titulo+(p.destaque?" ":"");if(p.destaque){var em=document.createElement("em");em.textContent=p.destaque;h.appendChild(em)}
 document.getElementById("promoText").textContent=p.texto||"";document.getElementById("promoBtn").href=wa(p.mensagem);box.hidden=false}
-/* trabalhos: coloque as fotos em assets/trabalhos/ e adicione um item por trabalho. Lista vazia = aviso "em breve". */
-var TRABALHOS=[
-{item:"Sofá 3 lugares",problema:"Manchas escuras e sujeira acumulada",antes:"assets/trabalhos/sofa-01-antes.webp",depois:"assets/trabalhos/sofa-01-depois.webp"}
-/* modelo: {item:"",local:"",problema:"",antes:"assets/trabalhos/x-antes.webp",depois:"assets/trabalhos/x-depois.webp"}, */
-];
 var IG="https://www.instagram.com/super_heroclean";
 function esc(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
 function renderGal(list){var g=document.getElementById("gal");if(!g)return;
@@ -295,18 +285,17 @@ function geo(){var c=row.children,step=c.length>1?c[1].offsetLeft-c[0].offsetLef
 [].forEach.call(g.querySelectorAll(".gbtn"),function(b){b.onclick=function(){var q=geo();row.scrollBy({left:+b.dataset.d*q.per*q.step,behavior:"smooth"})}});
 function upd(){var q=geo(),end=row.scrollLeft>=row.scrollWidth-row.clientWidth-2,pg=end?q.pages:Math.floor(Math.round(row.scrollLeft/q.step)/q.per)+1;nav.hidden=q.pages<2;cnt.textContent=pg+" / "+q.pages}
 row.addEventListener("scroll",upd,{passive:true});addEventListener("resize",upd);upd()}
-/* conteúdo: sem API configurada usa o conteúdo local; com API lê da planilha, mostrando antes a última versão salva no aparelho */
+/* conteúdo: lido da planilha pela API (config.js); mostra antes a última versão salva no aparelho */
 var CFG=window.SHC_CONFIG||{},CKEY="shc-content-v1";
-var LOCAL={precos:LOCAL_PRECOS,promo:{ativo:true,titulo:"Carpete a partir de",destaque:"R$ 12/m²",texto:"Ar mais puro e fibras protegidas. Informe a metragem e receba o valor.",mensagem:"Olá! Quero higienizar meu carpete (promoção R$ 12/m²)."},trabalhos:TRABALHOS};
 function renderContent(c){renderPrecos(c.precos);renderPromo(c.promo);renderGal(c.trabalhos||[])}
-function loadContent(){if(!CFG.api){renderContent(LOCAL);return}
+function loadContent(){var vazio={precos:[],promo:{ativo:false},trabalhos:[]};if(!CFG.api){console.warn("config.js sem API configurada");renderContent(vazio);return}
 var cached=null;try{cached=JSON.parse(localStorage.getItem(CKEY)||"null")}catch(e){}
 if(cached&&cached.precos)renderContent(cached);else{pl.innerHTML='<div class="price muted"><span>Carregando preços…</span></div>';document.getElementById("promo").hidden=true}
 var ctl=window.AbortController?new AbortController():null,tm=setTimeout(function(){if(ctl)ctl.abort()},8000);
 fetch(CFG.api,ctl?{signal:ctl.signal}:{}).then(function(r){return r.json()}).then(function(j){clearTimeout(tm);
 if(!j||!j.ok||!j.data||!Array.isArray(j.data.precos))throw new Error(j&&j.error&&j.error.code||"resposta inválida");
 renderContent(j.data);try{localStorage.setItem(CKEY,JSON.stringify(j.data))}catch(e){}})
-.catch(function(err){clearTimeout(tm);console.warn("Conteúdo do site indisponível:",err&&err.message||err);if(!cached)renderContent({precos:[],promo:{ativo:false},trabalhos:[]})})}
+.catch(function(err){clearTimeout(tm);console.warn("Conteúdo do site indisponível:",err&&err.message||err);if(!cached)renderContent(vazio)})}
 loadContent();
 /* carrossel "Por que higienizar" (celular): pontinhos acompanham o card visível */
 (function(){var r=document.querySelector(".args"),d=document.getElementById("adots");if(!r||!d)return;var c=r.children;
